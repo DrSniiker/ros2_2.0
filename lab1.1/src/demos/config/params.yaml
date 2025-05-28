@@ -1,0 +1,9 @@
+/**:  # Parameters for ALL nodes
+  ros__parameters:
+    message: "Hello from YAML file"
+    timer_period: 0.5
+
+param_talker:  # Parameters for ONLY the "param_talker" node
+  ros__parameters:
+    message: "Hello from YAML file for param_talker"  # This overrides the /** value
+    timer_period: 0.5

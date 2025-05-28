@@ -1,0 +1,244 @@
+[0.000000] (-) TimerEvent: {}
+[0.000311] (demos) JobQueued: {'identifier': 'demos', 'dependencies': OrderedDict()}
+[0.000612] (demos) JobStarted: {'identifier': 'demos'}
+[0.008689] (demos) JobProgress: {'identifier': 'demos', 'progress': 'cmake'}
+[0.009293] (demos) Command: {'cmd': ['/usr/bin/cmake', '/home/rosdev/ros2_ws_lab/lab1.1/src/demos', '-DCMAKE_INSTALL_PREFIX=/home/rosdev/ros2_ws_lab/lab1.1/install/demos'], 'cwd': '/home/rosdev/ros2_ws_lab/lab1.1/build/demos', 'env': OrderedDict([('TMUX_CONF', '/home/rosdev/.tmux.conf'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('HISTFILESIZE', '2147450879'), ('TMUX', '/tmp/tmux-1000/default,377819,0'), ('USER', 'rosdev'), ('LC_TIME', 'sv_SE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins::/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('LESS', '-R'), ('HOME', '/home/rosdev'), ('OLDPWD', '/home/rosdev/ros2_ws_lab'), ('TERM_PROGRAM_VERSION', '3.2a'), ('DESKTOP_SESSION', 'ubuntu'), ('TMUX_SOCKET', '/tmp/tmux-1000/default'), ('LSCOLORS', 'Gxfxcxdxdxegedabagacad'), ('TMUX_PROGRAM', '/usr/bin/tmux'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('LC_MONETARY', 'sv_SE.UTF-8'), ('LC_CTYPE', 'en_US.UTF-8'), ('SYSTEMD_EXEC_PID', '1625'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/opt/ros/humble/'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'rosdev'), ('OSH', '/home/rosdev/.oh-my-bash'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rosdev'), ('TERM', 'tmux-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo/../../share/gazebo-11/models:/usr/share/gazebo/../../share/gazebo-11/models::/opt/ros/humble/share/turtlebot3_gazebo/models:/opt/ros/humble/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/labpc:@/tmp/.ICE-unix/1598,unix/labpc:/tmp/.ICE-unix/1598'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sv_SE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fc41bade_505d_46b3_b073_042f15c6a58d'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('HISTSIZE', '2147450879'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sv_SE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.364'), ('TERM_PROGRAM', 'tmux'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sv_SE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('TMUX_CONF_LOCAL', '/home/rosdev/.tmux.conf.local'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sv_SE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo/../../share/gazebo-11:/usr/share/gazebo/../../share/gazebo-11:'), ('LC_IDENTIFICATION', 'sv_SE.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rosdev/ros2_ws_lab/lab1.1/build/demos'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'sv_SE.UTF-8'), ('LC_PAPER', 'sv_SE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('TMUX_PANE', '%1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.067547] (demos) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099837] (-) TimerEvent: {}
+[0.132745] (demos) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.144697] (demos) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199936] (-) TimerEvent: {}
+[0.228012] (demos) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.239224] (demos) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.239537] (demos) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.240083] (demos) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.244020] (demos) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300077] (-) TimerEvent: {}
+[0.342041] (demos) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.352205] (demos) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.352550] (demos) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.353160] (demos) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.355384] (demos) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.400156] (-) TimerEvent: {}
+[0.500411] (-) TimerEvent: {}
+[0.531797] (demos) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.600640] (-) TimerEvent: {}
+[0.650644] (demos) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.700663] (-) TimerEvent: {}
+[0.712390] (demos) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.717960] (demos) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.727214] (demos) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.741352] (demos) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.760090] (demos) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.800744] (-) TimerEvent: {}
+[0.808772] (demos) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.811299] (demos) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.899480] (demos) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.900826] (-) TimerEvent: {}
+[0.924715] (demos) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.964375] (demos) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.972676] (demos) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.000968] (-) TimerEvent: {}
+[1.058723] (demos) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.059055] (demos) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.101082] (-) TimerEvent: {}
+[1.140137] (demos) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.141456] (demos) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.201156] (-) TimerEvent: {}
+[1.205444] (demos) StdoutLine: {'line': b'-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[1.206673] (demos) StdoutLine: {'line': b'-- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)\n'}
+[1.301263] (-) TimerEvent: {}
+[1.401535] (-) TimerEvent: {}
+[1.416499] (demos) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.424809] (demos) StdoutLine: {'line': b'-- Generating done\n'}
+[1.429486] (demos) StdoutLine: {'line': b'-- Build files have been written to: /home/rosdev/ros2_ws_lab/lab1.1/build/demos\n'}
+[1.443464] (demos) CommandEnded: {'returncode': 0}
+[1.444203] (demos) JobProgress: {'identifier': 'demos', 'progress': 'build'}
+[1.445292] (demos) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rosdev/ros2_ws_lab/lab1.1/build/demos', '--', '-j12', '-l12'], 'cwd': '/home/rosdev/ros2_ws_lab/lab1.1/build/demos', 'env': OrderedDict([('TMUX_CONF', '/home/rosdev/.tmux.conf'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('HISTFILESIZE', '2147450879'), ('TMUX', '/tmp/tmux-1000/default,377819,0'), ('USER', 'rosdev'), ('LC_TIME', 'sv_SE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins::/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('LESS', '-R'), ('HOME', '/home/rosdev'), ('OLDPWD', '/home/rosdev/ros2_ws_lab'), ('TERM_PROGRAM_VERSION', '3.2a'), ('DESKTOP_SESSION', 'ubuntu'), ('TMUX_SOCKET', '/tmp/tmux-1000/default'), ('LSCOLORS', 'Gxfxcxdxdxegedabagacad'), ('TMUX_PROGRAM', '/usr/bin/tmux'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('LC_MONETARY', 'sv_SE.UTF-8'), ('LC_CTYPE', 'en_US.UTF-8'), ('SYSTEMD_EXEC_PID', '1625'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/opt/ros/humble/'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'rosdev'), ('OSH', '/home/rosdev/.oh-my-bash'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rosdev'), ('TERM', 'tmux-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo/../../share/gazebo-11/models:/usr/share/gazebo/../../share/gazebo-11/models::/opt/ros/humble/share/turtlebot3_gazebo/models:/opt/ros/humble/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/labpc:@/tmp/.ICE-unix/1598,unix/labpc:/tmp/.ICE-unix/1598'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sv_SE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fc41bade_505d_46b3_b073_042f15c6a58d'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('HISTSIZE', '2147450879'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sv_SE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.364'), ('TERM_PROGRAM', 'tmux'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sv_SE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('TMUX_CONF_LOCAL', '/home/rosdev/.tmux.conf.local'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sv_SE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo/../../share/gazebo-11:/usr/share/gazebo/../../share/gazebo-11:'), ('LC_IDENTIFICATION', 'sv_SE.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rosdev/ros2_ws_lab/lab1.1/build/demos'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'sv_SE.UTF-8'), ('LC_PAPER', 'sv_SE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('TMUX_PANE', '%1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.501683] (-) TimerEvent: {}
+[1.524670] (demos) StdoutLine: {'line': b'Built target ament_cmake_python_copy_src\n'}
+[1.601787] (-) TimerEvent: {}
+[1.702063] (-) TimerEvent: {}
+[1.802326] (-) TimerEvent: {}
+[1.831739] (demos) StdoutLine: {'line': b'running egg_info\n'}
+[1.832354] (demos) StdoutLine: {'line': b'creating src.egg-info\n'}
+[1.832509] (demos) StdoutLine: {'line': b'writing src.egg-info/PKG-INFO\n'}
+[1.832649] (demos) StdoutLine: {'line': b'writing dependency_links to src.egg-info/dependency_links.txt\n'}
+[1.832822] (demos) StdoutLine: {'line': b'writing top-level names to src.egg-info/top_level.txt\n'}
+[1.833128] (demos) StdoutLine: {'line': b"writing manifest file 'src.egg-info/SOURCES.txt'\n"}
+[1.835621] (demos) StdoutLine: {'line': b"reading manifest file 'src.egg-info/SOURCES.txt'\n"}
+[1.836281] (demos) StdoutLine: {'line': b"writing manifest file 'src.egg-info/SOURCES.txt'\n"}
+[1.861118] (demos) StdoutLine: {'line': b'Built target ament_cmake_python_build_src_egg\n'}
+[1.874260] (demos) CommandEnded: {'returncode': 0}
+[1.875124] (demos) JobProgress: {'identifier': 'demos', 'progress': 'install'}
+[1.884130] (demos) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rosdev/ros2_ws_lab/lab1.1/build/demos'], 'cwd': '/home/rosdev/ros2_ws_lab/lab1.1/build/demos', 'env': OrderedDict([('TMUX_CONF', '/home/rosdev/.tmux.conf'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('HISTFILESIZE', '2147450879'), ('TMUX', '/tmp/tmux-1000/default,377819,0'), ('USER', 'rosdev'), ('LC_TIME', 'sv_SE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins::/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('LESS', '-R'), ('HOME', '/home/rosdev'), ('OLDPWD', '/home/rosdev/ros2_ws_lab'), ('TERM_PROGRAM_VERSION', '3.2a'), ('DESKTOP_SESSION', 'ubuntu'), ('TMUX_SOCKET', '/tmp/tmux-1000/default'), ('LSCOLORS', 'Gxfxcxdxdxegedabagacad'), ('TMUX_PROGRAM', '/usr/bin/tmux'), ('GAZEBO_MASTER_URI', 'http://localhost:11345'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('LC_MONETARY', 'sv_SE.UTF-8'), ('LC_CTYPE', 'en_US.UTF-8'), ('SYSTEMD_EXEC_PID', '1625'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/opt/ros/humble/'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'rosdev'), ('OSH', '/home/rosdev/.oh-my-bash'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rosdev'), ('TERM', 'tmux-256color'), ('GAZEBO_MODEL_PATH', '/usr/share/gazebo/../../share/gazebo-11/models:/usr/share/gazebo/../../share/gazebo-11/models::/opt/ros/humble/share/turtlebot3_gazebo/models:/opt/ros/humble/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('WINDOWPATH', '2'), ('OGRE_RESOURCE_PATH', '/usr/lib/x86_64-linux-gnu/OGRE-1.9.0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/labpc:@/tmp/.ICE-unix/1598,unix/labpc:/tmp/.ICE-unix/1598'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'sv_SE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fc41bade_505d_46b3_b073_042f15c6a58d'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('HISTSIZE', '2147450879'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'sv_SE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.364'), ('TERM_PROGRAM', 'tmux'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'sv_SE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('TMUX_CONF_LOCAL', '/home/rosdev/.tmux.conf.local'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'sv_SE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo/../../share/gazebo-11:/usr/share/gazebo/../../share/gazebo-11:'), ('LC_IDENTIFICATION', 'sv_SE.UTF-8'), ('GAZEBO_MODEL_DATABASE_URI', 'http://models.gazebosim.org'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rosdev/ros2_ws_lab/lab1.1/build/demos'), ('TURTLEBOT3_MODEL', 'burger'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', '/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:/usr/share/gazebo/../../lib/x86_64-linux-gnu/gazebo-11/plugins:'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'sv_SE.UTF-8'), ('LC_PAPER', 'sv_SE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('TMUX_PANE', '%1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.893801] (demos) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.894080] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.sh\n'}
+[1.894289] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.dsv\n'}
+[1.894481] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info\n'}
+[1.894697] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/SOURCES.txt\n'}
+[1.894847] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/dependency_links.txt\n'}
+[1.894990] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/PKG-INFO\n'}
+[1.895135] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/top_level.txt\n'}
+[1.895334] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src\n'}
+[1.895476] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters\n'}
+[1.895644] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py\n'}
+[1.895766] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py\n'}
+[1.895920] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py\n'}
+[1.896063] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics\n'}
+[1.896207] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py\n'}
+[1.896361] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py\n'}
+[1.896477] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py\n'}
+[1.896602] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py\n'}
+[1.896736] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py\n'}
+[1.896837] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py\n'}
+[1.896979] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build\n'}
+[1.897122] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/COLCON_IGNORE\n'}
+[1.897266] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/.built_by\n'}
+[1.897409] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py\n'}
+[1.897552] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py\n'}
+[1.897729] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log\n'}
+[1.897832] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest\n'}
+[1.897940] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/COLCON_IGNORE\n'}
+[1.898075] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54\n'}
+[1.898232] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/logger_all.log\n'}
+[1.898340] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/events.log\n'}
+[1.898447] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest_build\n'}
+[1.898603] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py\n'}
+[1.898737] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py\n'}
+[1.898869] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install\n'}
+[1.898973] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.bash\n'}
+[1.899099] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/.colcon_install_layout\n'}
+[1.899206] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.ps1\n'}
+[1.899349] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/COLCON_IGNORE\n'}
+[1.899465] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py\n'}
+[1.899618] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.sh\n'}
+[1.899774] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.zsh\n'}
+[1.899882] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.bash\n'}
+[1.900025] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.sh\n'}
+[1.900164] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py\n'}
+[1.900392] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.ps1\n'}
+[1.900634] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.zsh\n'}
+[1.900815] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py\n'}
+[1.901015] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions\n'}
+[1.901162] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py\n'}
+[1.901363] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py\n'}
+[1.901583] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py\n'}
+[1.902013] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services\n'}
+[1.902159] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py\n'}
+[1.902302] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py\n'}
+[1.902413] (-) TimerEvent: {}
+[1.902631] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py\n'}
+[1.958020] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src'...\n"}
+[1.958253] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py'...\n"}
+[1.958355] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions'...\n"}
+[1.958453] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py'...\n"}
+[1.958559] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py'...\n"}
+[1.958673] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py'...\n"}
+[1.958769] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters'...\n"}
+[1.958861] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py'...\n"}
+[1.958952] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py'...\n"}
+[1.959050] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py'...\n"}
+[1.959140] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services'...\n"}
+[1.959228] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py'...\n"}
+[1.959318] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py'...\n"}
+[1.959406] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py'...\n"}
+[1.959494] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics'...\n"}
+[1.959581] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py'...\n"}
+[1.959688] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build'...\n"}
+[1.959777] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install'...\n"}
+[1.959865] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py'...\n"}
+[1.959953] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py'...\n"}
+[1.960041] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py'...\n"}
+[1.960128] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py'...\n"}
+[1.960216] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py'...\n"}
+[1.960303] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py'...\n"}
+[1.960391] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py'...\n"}
+[1.960479] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log'...\n"}
+[1.960580] (demos) StdoutLine: {'line': b"Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54'...\n"}
+[1.960685] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py'...\n"}
+[1.960774] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py'...\n"}
+[1.960856] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py'...\n"}
+[1.960938] (demos) StdoutLine: {'line': b"Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py'...\n"}
+[1.962150] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config\n'}
+[1.962365] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config/params.yaml\n'}
+[1.962596] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services\n'}
+[1.962753] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/__init__.py\n'}
+[1.962910] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_client.py\n'}
+[1.963057] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_server.py\n'}
+[1.963229] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics\n'}
+[1.963368] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_test.py\n'}
+[1.963543] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker.py\n'}
+[1.963747] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_niklas.py\n'}
+[1.963841] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener.py\n'}
+[1.963978] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/__init__.py\n'}
+[1.964149] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_test.py\n'}
+[1.964279] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build\n'}
+[1.964407] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/COLCON_IGNORE\n'}
+[1.964571] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/.built_by\n'}
+[1.964737] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_micke.py\n'}
+[1.964877] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_jonas.py\n'}
+[1.965004] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log\n'}
+[1.965203] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest\n'}
+[1.965342] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/COLCON_IGNORE\n'}
+[1.965532] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54\n'}
+[1.965700] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/logger_all.log\n'}
+[1.965800] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/events.log\n'}
+[1.965982] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest_build\n'}
+[1.966122] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_martin.py\n'}
+[1.966234] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_emil.py\n'}
+[1.966384] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install\n'}
+[1.966517] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.bash\n'}
+[1.966681] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/.colcon_install_layout\n'}
+[1.966797] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.ps1\n'}
+[1.966935] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/COLCON_IGNORE\n'}
+[1.967124] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_sh.py\n'}
+[1.967252] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.sh\n'}
+[1.967382] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.zsh\n'}
+[1.967570] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.bash\n'}
+[1.967743] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.sh\n'}
+[1.967896] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_ps1.py\n'}
+[1.968057] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.ps1\n'}
+[1.968199] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.zsh\n'}
+[1.968337] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters\n'}
+[1.968473] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/__init__.py\n'}
+[1.968666] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/config_reader.py\n'}
+[1.968767] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/param_talker.py\n'}
+[1.968862] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions\n'}
+[1.968985] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/__init__.py\n'}
+[1.969147] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_server.py\n'}
+[1.969279] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_client.py\n'}
+[1.969444] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_client.py\n'}
+[1.969607] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_server.py\n'}
+[1.969749] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener.py\n'}
+[1.969873] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_test.py\n'}
+[1.970045] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_niklas.py\n'}
+[1.970180] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_emil.py\n'}
+[1.970388] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_jonas.py\n'}
+[1.970525] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_micke.py\n'}
+[1.970712] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_martin.py\n'}
+[1.970837] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker.py\n'}
+[1.970954] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_test.py\n'}
+[1.971092] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/param_talker.py\n'}
+[1.971219] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/config_reader.py\n'}
+[1.971358] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_client.py\n'}
+[1.971485] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_server.py\n'}
+[1.971677] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/package_run_dependencies/demos\n'}
+[1.971794] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/parent_prefix_path/demos\n'}
+[1.971926] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.sh\n'}
+[1.972078] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.dsv\n'}
+[1.972216] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.sh\n'}
+[1.972382] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.dsv\n'}
+[1.972503] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.bash\n'}
+[1.972672] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.sh\n'}
+[1.972795] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.zsh\n'}
+[1.972965] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.dsv\n'}
+[1.973142] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.dsv\n'}
+[1.973460] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/packages/demos\n'}
+[1.973673] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig.cmake\n'}
+[1.973803] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig-version.cmake\n'}
+[1.973984] (demos) StdoutLine: {'line': b'-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.xml\n'}
+[1.976689] (demos) CommandEnded: {'returncode': 0}
+[2.002640] (-) TimerEvent: {}
+[2.023358] (demos) JobEnded: {'identifier': 'demos', 'rc': 0}
+[2.025035] (-) EventReactorShutdown: {}

@@ -1,0 +1,210 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+-- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rosdev/ros2_ws_lab/lab1.1/build/demos
+Built target ament_cmake_python_copy_src
+running egg_info
+creating src.egg-info
+writing src.egg-info/PKG-INFO
+writing dependency_links to src.egg-info/dependency_links.txt
+writing top-level names to src.egg-info/top_level.txt
+writing manifest file 'src.egg-info/SOURCES.txt'
+reading manifest file 'src.egg-info/SOURCES.txt'
+writing manifest file 'src.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_src_egg
+-- Install configuration: ""
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/PKG-INFO
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/top_level.txt
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/.built_by
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/logger_all.log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/events.log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest_build
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.bash
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/.colcon_install_layout
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.ps1
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.zsh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.bash
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.ps1
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.zsh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py'...
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config/params.yaml
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_server.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_niklas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/.built_by
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_micke.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_jonas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/logger_all.log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/events.log
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest_build
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_martin.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_emil.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.bash
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/.colcon_install_layout
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.ps1
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/COLCON_IGNORE
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_sh.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.zsh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.bash
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_ps1.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.ps1
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.zsh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/config_reader.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/param_talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/__init__.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_server.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_server.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_niklas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_emil.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_jonas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_micke.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_martin.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_test.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/param_talker.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/config_reader.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_client.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_server.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/package_run_dependencies/demos
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/parent_prefix_path/demos
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.bash
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.sh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.zsh
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/packages/demos
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig.cmake
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig-version.cmake
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.xml
