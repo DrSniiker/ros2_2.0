@@ -1,0 +1,6 @@
+Invoking command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosdev/ros2_ws_lab/lab1.1/src/demos -DCMAKE_INSTALL_PREFIX=/home/rosdev/ros2_ws_lab/lab1.1/install/demos
+Invoked command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rosdev/ros2_ws_lab/lab1.1/src/demos -DCMAKE_INSTALL_PREFIX=/home/rosdev/ros2_ws_lab/lab1.1/install/demos
+Invoking command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosdev/ros2_ws_lab/lab1.1/build/demos -- -j12 -l12
+Invoked command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosdev/ros2_ws_lab/lab1.1/build/demos -- -j12 -l12
+Invoking command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosdev/ros2_ws_lab/lab1.1/build/demos
+Invoked command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosdev/ros2_ws_lab/lab1.1/build/demos

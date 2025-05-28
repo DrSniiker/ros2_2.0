@@ -1,0 +1,156 @@
+[0.011s] Invoking command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosdev/ros2_ws_lab/lab1.1/build/demos -- -j12 -l12
+[0.076s] Built target ament_cmake_python_copy_src
+[0.378s] running egg_info
+[0.379s] writing src.egg-info/PKG-INFO
+[0.379s] writing dependency_links to src.egg-info/dependency_links.txt
+[0.379s] writing top-level names to src.egg-info/top_level.txt
+[0.382s] reading manifest file 'src.egg-info/SOURCES.txt'
+[0.383s] writing manifest file 'src.egg-info/SOURCES.txt'
+[0.409s] Built target ament_cmake_python_build_src_egg
+[0.421s] Invoked command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rosdev/ros2_ws_lab/lab1.1/build/demos -- -j12 -l12
+[0.433s] Invoking command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosdev/ros2_ws_lab/lab1.1/build/demos
+[0.443s] -- Install configuration: ""
+[0.443s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.sh
+[0.443s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.dsv
+[0.443s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info
+[0.443s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/SOURCES.txt
+[0.443s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/dependency_links.txt
+[0.443s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/PKG-INFO
+[0.444s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/top_level.txt
+[0.444s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src
+[0.444s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters
+[0.444s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py
+[0.444s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py
+[0.444s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/COLCON_IGNORE
+[0.445s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/.built_by
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/COLCON_IGNORE
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/logger_all.log
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/events.log
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest_build
+[0.446s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py
+[0.446s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.bash
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/.colcon_install_layout
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.ps1
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/COLCON_IGNORE
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.sh
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.zsh
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.bash
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.sh
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.ps1
+[0.447s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.zsh
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py
+[0.448s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py
+[0.481s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src'...
+[0.481s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions'...
+[0.481s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters'...
+[0.481s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services'...
+[0.482s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics'...
+[0.482s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build'...
+[0.482s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install'...
+[0.482s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log'...
+[0.482s] Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54'...
+[0.482s] Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py'...
+[0.485s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config
+[0.485s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config/params.yaml
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/__init__.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_client.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_server.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_test.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_niklas.py
+[0.486s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener.py
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/__init__.py
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_test.py
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/COLCON_IGNORE
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/.built_by
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_micke.py
+[0.487s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_jonas.py
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/COLCON_IGNORE
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/logger_all.log
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/events.log
+[0.488s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest_build
+[0.489s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_martin.py
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_emil.py
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.bash
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/.colcon_install_layout
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.ps1
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/COLCON_IGNORE
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_sh.py
+[0.489s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.sh
+[0.490s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.zsh
+[0.490s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.bash
+[0.491s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.sh
+[0.491s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_ps1.py
+[0.491s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.ps1
+[0.491s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.zsh
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/__init__.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/config_reader.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/param_talker.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/__init__.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_server.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_client.py
+[0.492s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_client.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_server.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_test.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_niklas.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_emil.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_jonas.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_micke.py
+[0.493s] -- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_martin.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_test.py
+[0.493s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/param_talker.py
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/config_reader.py
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_client.py
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_server.py
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/package_run_dependencies/demos
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/parent_prefix_path/demos
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.sh
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.dsv
+[0.494s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.sh
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.dsv
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.bash
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.sh
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.zsh
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.dsv
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.dsv
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/packages/demos
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig.cmake
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig-version.cmake
+[0.495s] -- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.xml
+[0.496s] Invoked command in '/home/rosdev/ros2_ws_lab/lab1.1/build/demos' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rosdev/ros2_ws_lab/lab1.1/build/demos

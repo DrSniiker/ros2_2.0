@@ -1,0 +1,152 @@
+Built target ament_cmake_python_copy_src
+running egg_info
+writing src.egg-info/PKG-INFO
+writing dependency_links to src.egg-info/dependency_links.txt
+writing top-level names to src.egg-info/top_level.txt
+reading manifest file 'src.egg-info/SOURCES.txt'
+writing manifest file 'src.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_src_egg
+-- Install configuration: ""
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/pythonpath.dsv
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/PKG-INFO
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src-0.0.1-py3.10.egg-info/top_level.txt
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/config_reader.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters/param_talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_niklas.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build/.built_by
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_micke.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_jonas.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/logger_all.log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54/events.log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/latest_build
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/talker_martin.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.bash
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/.colcon_install_layout
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.ps1
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_sh.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.zsh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.bash
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/_local_setup_util_ps1.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/local_setup.ps1
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install/setup.zsh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_server.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions/action_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services/service_server.py
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/actions'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/parameters'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/services'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/build'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/install'...
+Compiling '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/listener_emil.py'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log'...
+Listing '/home/rosdev/ros2_ws_lab/lab1.1/install/demos/local/lib/python3.10/dist-packages/src/topics/log/build_2025-04-11_10-34-54'...
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/config/params.yaml
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/services/service_server.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_niklas.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/build/.built_by
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_micke.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_jonas.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/logger_all.log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/build_2025-04-11_10-34-54/events.log
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/log/latest_build
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/talker_martin.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/listener_emil.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.bash
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/.colcon_install_layout
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.ps1
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/COLCON_IGNORE
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_sh.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.zsh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.bash
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/_local_setup_util_ps1.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/local_setup.ps1
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/topics/install/setup.zsh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/config_reader.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/parameters/param_talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/__init__.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_server.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/actions/action_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/service_server.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_niklas.py
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_emil.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/listener_jonas.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_micke.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_martin.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/talker_test.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/param_talker.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/config_reader.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_client.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/lib/demos/action_server.py
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/package_run_dependencies/demos
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/parent_prefix_path/demos
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/environment/path.dsv
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.bash
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.sh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.zsh
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/local_setup.dsv
+-- Installing: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.dsv
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/ament_index/resource_index/packages/demos
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig.cmake
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/cmake/demosConfig-version.cmake
+-- Up-to-date: /home/rosdev/ros2_ws_lab/lab1.1/install/demos/share/demos/package.xml
