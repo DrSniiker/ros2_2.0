@@ -105,7 +105,6 @@ class Turtlebot3Navigator(Node):
 
     def amcl_pose_callback(self, msg):
         self.robot_pose = msg.pose.pose.position
-        print(f'hej!')
 
     def clicked_point_callback(self, msg):
         self.goal_pose = msg.point
@@ -118,7 +117,6 @@ class Turtlebot3Navigator(Node):
         self.origin_offset = msg.info.origin.position
         self.map_resolution = msg.info.resolution
         if self.has_map_received:
-            print(self.has_map_received)
             self.has_map_received = False
             self.create_map(occupancy_grid_data, map_height, map_width)
 
@@ -126,22 +124,12 @@ class Turtlebot3Navigator(Node):
         self.tele_twist = msg
 
     def timer_callback(self):
-        # print(f'{self.has_scan_received=}')
         if self.has_scan_received and self.has_map_received:
-            
             self.has_scan_received = False
 
     def global_to_discrete(self, globalX, globalY):
-        print('############### pose ')
-        print(f'{globalX=}')
-        print(f'{self.origin_offset.x=}')
-        print(f'{globalY=}')
-        print(f'{self.origin_offset.y=}')
-        print(f'{self.map_resolution=}')
         discreteX = (globalX - self.origin_offset.x)/self.map_resolution
         discreteY = (globalY - self.origin_offset.y)/self.map_resolution
-        print('############### pose ')
-        print(discreteX, discreteY)
         return (int(discreteX), int(discreteY))
 
     def discrete_to_global(self, coords):
@@ -154,8 +142,6 @@ class Turtlebot3Navigator(Node):
     # construct multiarray message
     def multi_array_constructor(self, array):
         msg = UInt8MultiArray()
-
-        print([item for sublist in array for item in sublist])
 
         # Flatten the 2D array for the 'data' field
         msg.data = [int(item) for sublist in array for item in sublist]
@@ -173,9 +159,19 @@ class Turtlebot3Navigator(Node):
 
         msg.layout.dim = [dim_row, dim_col]
         msg.layout.data_offset = 0
-
-        self.get_logger().info('Constructed multi-dimensional array')
+        
         return msg
+
+    def multi_array_deconstructor(self, msg):
+        rows = msg.layout.dim[0].size
+        cols = msg.layout.dim[1].size
+
+        # Reconstruct the 2D array from flat data list
+        data = msg.data
+        array_2d = [data[i * cols:(i + 1) * cols] for i in range(rows)]
+        
+        return array_2d
+
 
     def create_map(self, data, height, width):
         print('create map')
@@ -199,8 +195,11 @@ class Turtlebot3Navigator(Node):
 
         print(robot_pose_relative)
         print(goal_pose_relative)
-        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
-        #self.print_maze_with_path(maze2D, robot_pose_relative, goal_pose_relative, 2)
+
+        deconstructed = self.multi_array_deconstructor(start_goal_msg)
+        print(deconstructed)
+
+        # self.print_map_cv2(deconstructed, robot_pose_relative, goal_pose_relative) #TODO add path
 
     def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
         """
@@ -212,7 +211,7 @@ class Turtlebot3Navigator(Node):
         - goal_pose: tuple (x, y) for goal position
         """
         # Convert map to numpy array if it isn't already
-        # map_np = numpy.array(map2D, dtype=numpy.uint8)
+        map2D = numpy.array(map2D, dtype=numpy.uint8)
 
         # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
         binary_map = (map2D >= threshold).astype(numpy.uint8)
@@ -241,25 +240,6 @@ class Turtlebot3Navigator(Node):
         cv2.imshow('Map Visualization', img_resized)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        #TODO
-
-        return
-
-    def print_maze_with_path(self, maze, start, goal, path):
-        print('print maze:')
-        for i, row in enumerate(maze):
-            line = ''
-            for j, cell in enumerate(row):
-                if (i, j) == start:
-                    line += 'O'  # Startpunkt
-                elif (i, j) == goal:
-                    line += 'X'  # Målpunkt
-                # elif path and (i, j) in path:
-                #     line += '*'  # Del av vägen
-                else:
-                    line += '█' if cell >= 100 else ' '
-            print(line)
-            self.detect_obstacle()
 
     def detect_obstacle(self):
         while True:
