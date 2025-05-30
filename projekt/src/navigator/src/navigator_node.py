@@ -21,6 +21,7 @@ from geometry_msgs.msg import PoseWithCovarianceStamped
 from geometry_msgs.msg import PointStamped
 from geometry_msgs.msg import Point
 from std_msgs.msg import Bool
+from std_msgs.msg import UInt8MultiArray, MultiArrayDimension
 from nav_msgs.msg import OccupancyGrid
 import rclpy
 from rclpy.node import Node
@@ -29,12 +30,13 @@ from rclpy.qos import QoSProfile
 from sensor_msgs.msg import LaserScan
 from time import sleep
 import numpy
+import cv2
 
 
-class Turtlebot3ObstacleDetection(Node):
+class Turtlebot3Navigator(Node):
 
     def __init__(self):
-        super().__init__('turtlebot3_obstacle_detection')
+        super().__init__('turtlebot3_navigator_node')
         print('TurtleBot3 Obstacle Detection - Auto Move Enabled')
         print('----------------------------------------------')
         print('stop angle: -90 ~ 90 deg')
@@ -60,6 +62,10 @@ class Turtlebot3ObstacleDetection(Node):
         self.cmd_vel_pub = self.create_publisher(Twist, 'cmd_vel', qos)
 
         self.obstacle_detected = self.create_publisher(Bool, 'obs_det', qos)
+
+        self.a_star_map_pub = self.create_publisher(UInt8MultiArray, 'a_star_map', qos)
+
+        self.start_goal_coords_pub = self.create_publisher(UInt8MultiArray, 'start_goal_coords', qos)
 
         self.scan_sub = self.create_subscription(
             LaserScan,
@@ -99,6 +105,7 @@ class Turtlebot3ObstacleDetection(Node):
 
     def amcl_pose_callback(self, msg):
         self.robot_pose = msg.pose.pose.position
+        print(f'hej!')
 
     def clicked_point_callback(self, msg):
         self.goal_pose = msg.point
@@ -111,6 +118,7 @@ class Turtlebot3ObstacleDetection(Node):
         self.origin_offset = msg.info.origin.position
         self.map_resolution = msg.info.resolution
         if self.has_map_received:
+            print(self.has_map_received)
             self.has_map_received = False
             self.create_map(occupancy_grid_data, map_height, map_width)
 
@@ -118,29 +126,127 @@ class Turtlebot3ObstacleDetection(Node):
         self.tele_twist = msg
 
     def timer_callback(self):
-        print(f'{self.has_scan_received=}')
+        # print(f'{self.has_scan_received=}')
         if self.has_scan_received and self.has_map_received:
-            self.detect_obstacle()
+            
             self.has_scan_received = False
-    
-    def create_map(self, data, height, width):
-        maze2D = numpy.array(data, dtype=numpy.int8).reshape((height, width))
-        # Kart hantering
-        robot_pose_relative = Point()
-        robot_pose_relative.x = (self.robot_pose.x - self.origin_offset.x)/self.map_resolution
-        robot_pose_relative.y = (self.robot_pose.y - self.origin_offset.y)/self.map_resolution
 
-        goal_pose_relative = Point()
-        goal_pose_relative.x = (self.goal_pose.x - self.origin_offset.x)/self.map_resolution
-        goal_pose_relative.y = (self.goal_pose.y - self.origin_offset.y)/self.map_resolution
+    def global_to_discrete(self, globalX, globalY):
+        print('############### pose ')
+        print(f'{globalX=}')
+        print(f'{self.origin_offset.x=}')
+        print(f'{globalY=}')
+        print(f'{self.origin_offset.y=}')
+        print(f'{self.map_resolution=}')
+        discreteX = (globalX - self.origin_offset.x)/self.map_resolution
+        discreteY = (globalY - self.origin_offset.y)/self.map_resolution
+        print('############### pose ')
+        print(discreteX, discreteY)
+        return (int(discreteX), int(discreteY))
+
+    def discrete_to_global(self, coords):
+        coords = numpy.array(coords, dtype=numpy.int32)
+        coords *= self.map_resolution
+        coords[:, 0] = coords[:, 0] + self.origin_offset.x
+        coords[:, 1] = coords[:, 1] + self.origin_offset.y
+        return coords
+    
+    # construct multiarray message
+    def multi_array_constructor(self, array):
+        msg = UInt8MultiArray()
+
+        print([item for sublist in array for item in sublist])
+
+        # Flatten the 2D array for the 'data' field
+        msg.data = [int(item) for sublist in array for item in sublist]
+
+        # Define the layout dimensions
+        dim_row = MultiArrayDimension()
+        dim_row.label = "rows"
+        dim_row.size = len(array)
+        dim_row.stride = len(array) * len(array[0])
+
+        dim_col = MultiArrayDimension()
+        dim_col.label = "cols"
+        dim_col.size = len(array[0])
+        dim_col.stride = len(array[0])
+
+        msg.layout.dim = [dim_row, dim_col]
+        msg.layout.data_offset = 0
+
+        self.get_logger().info('Constructed multi-dimensional array')
+        return msg
+
+    def create_map(self, data, height, width):
+        print('create map')
+        maze2D = numpy.array(data, dtype=numpy.int8).reshape((height, -width))
+
+        print('############### BEFORE FUNCTION CALL ')
+        print(f'{self.robot_pose.x=}')
+        robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
+        goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
+
+        map_msg = UInt8MultiArray()
+        map_msg = self.multi_array_constructor(maze2D)
+        self.a_star_map_pub.publish(map_msg)
+
+
+        start_goal_msg = UInt8MultiArray()
+        start_goal_msg= self.multi_array_constructor([robot_pose_relative, goal_pose_relative])
+        self.start_goal_coords_pub.publish(start_goal_msg)
 
         # A*
 
-        print(robot_pose_relative.x, robot_pose_relative.y)
-        print(goal_pose_relative.x, goal_pose_relative.y)
-        self.print_maze_with_path(maze2D, (int(robot_pose_relative.x), int(robot_pose_relative.y)), (int(goal_pose_relative.x), int(goal_pose_relative.y)), 2)
+        print(robot_pose_relative)
+        print(goal_pose_relative)
+        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
+        #self.print_maze_with_path(maze2D, robot_pose_relative, goal_pose_relative, 2)
+
+    def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
+        """
+        Visualize a 2D map with robot and goal positions using OpenCV.
+
+        Parameters:
+        - map2D: 2D list or numpy array representing the map (0 = free space, 1 = obstacle)
+        - robot_pose: tuple (x, y) for robot position
+        - goal_pose: tuple (x, y) for goal position
+        """
+        # Convert map to numpy array if it isn't already
+        # map_np = numpy.array(map2D, dtype=numpy.uint8)
+
+        # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
+        binary_map = (map2D >= threshold).astype(numpy.uint8)
+
+        # Normalize map to 0-255 for visualization (0 = white, 1 = black obstacle)
+        # Invert so free space is white, obstacles are black
+        img = 255 * (1 - binary_map)
+
+        # Convert single channel to BGR for colored markings
+        img_color = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+
+        # Draw origin as a red circle
+        cv2.circle(img_color, (0,0), radius=3, color=(0, 0, 255), thickness=-1)
+
+        # Draw robot position as a blue circle
+        cv2.circle(img_color, robot_pose, radius=5, color=(255, 0, 0), thickness=-1)
+
+        # Draw goal position as a green circle
+        cv2.circle(img_color, goal_pose, radius=5, color=(0, 255, 0), thickness=-1)
+
+        # Optionally resize for better visibility
+        scale = 4
+        img_resized = cv2.resize(img_color, (img_color.shape[1]*scale, img_color.shape[0]*scale), interpolation=cv2.INTER_NEAREST)
+
+        # Show the image
+        cv2.imshow('Map Visualization', img_resized)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        #TODO
+
+        return
 
     def print_maze_with_path(self, maze, start, goal, path):
+        print('print maze:')
         for i, row in enumerate(maze):
             line = ''
             for j, cell in enumerate(row):
@@ -153,12 +259,11 @@ class Turtlebot3ObstacleDetection(Node):
                 else:
                     line += '█' if cell >= 100 else ' '
             print(line)
+            self.detect_obstacle()
 
     def detect_obstacle(self):
         while True:
-            print('len: ', len(self.occupancy_grid_data))
-            print('w*h: ', self.map_width*self.map_height)
-            print(self.map_height, self.map_width)
+            sleep(1)
         
         left_range = int(len(self.scan_ranges) / 4)
         right_range = int(len(self.scan_ranges) * 3 / 4)
@@ -187,10 +292,10 @@ class Turtlebot3ObstacleDetection(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    turtlebot3_obstacle_detection = Turtlebot3ObstacleDetection()
-    rclpy.spin(turtlebot3_obstacle_detection)
+    turtlebot3_navigator_node = Turtlebot3Navigator()
+    rclpy.spin(turtlebot3_navigator_node)
 
-    turtlebot3_obstacle_detection.destroy_node()
+    turtlebot3_navigator_node.destroy_node()
     rclpy.shutdown()
 
 
