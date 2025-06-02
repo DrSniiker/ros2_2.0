@@ -192,11 +192,12 @@ class Turtlebot3Navigator(Node):
         robot_pose_relative = self.global_to_discrete(start[0], start[1])
         goal_pose_relative = self.global_to_discrete(goal[0], goal[1])
 
+        print('map')
         map_msg = UInt8MultiArray()
         map_msg = self.multi_array_constructor(maze)
         self.a_star_map_pub.publish(map_msg)
 
-
+        print('points')
         start_goal_msg = UInt8MultiArray()
         start_goal_msg= self.multi_array_constructor([robot_pose_relative, goal_pose_relative])
         self.start_goal_coords_pub.publish(start_goal_msg)
