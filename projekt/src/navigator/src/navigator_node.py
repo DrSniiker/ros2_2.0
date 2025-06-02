@@ -150,13 +150,13 @@ class Turtlebot3Navigator(Node):
         # Define the layout dimensions
         dim_row = MultiArrayDimension()
         dim_row.label = "rows"
-        dim_row.size = len(array)
-        dim_row.stride = len(array) * len(array[0])
+        dim_row.size = int(len(array))
+        dim_row.stride = int(len(array) * len(array[0]))
 
         dim_col = MultiArrayDimension()
         dim_col.label = "cols"
-        dim_col.size = len(array[0])
-        dim_col.stride = len(array[0])
+        dim_col.size = int(len(array[0]))
+        dim_col.stride = int(len(array[0]))
 
         msg.layout.dim = [dim_row, dim_col]
         msg.layout.data_offset = 0
