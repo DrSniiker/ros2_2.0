@@ -210,7 +210,7 @@ class Turtlebot3AStar(Node):
         while openSet:
             current = self.get_node_with_lowest_fscore(openSet, fScore)
 
-            print(f'{current=}')
+            print(f'{current=}, {goal=}')
             if current == goal:
                 path = self.reconstruct_path(cameFrom, current)
                 self.path_list_pub.publish(path)
