@@ -126,6 +126,10 @@ class Turtlebot3AStar(Node):
     # Tar in en av scorlistorna, gScore eller fScore, en koordinat och ett nytt värde som den
     # koordinaten ska få och uppdaterar eller lägger till den i listan.
     def set_score(self, score_list, coord, newScore):
+        if score_list == []:
+            score_list.append((coord, newScore))
+            return
+
         for i in range(len(score_list)):
             if score_list[i][0] == coord:
                 score_list[i] = (coord, newScore)
