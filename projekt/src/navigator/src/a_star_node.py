@@ -164,6 +164,7 @@ class Turtlebot3AStar(Node):
         directions = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
+            print(f"Checking neighbor: ({nx}, {ny})")
             if maze[nx][ny] == 0:  # 0 är en fri cell
                 neighbors.append((nx, ny))
         
