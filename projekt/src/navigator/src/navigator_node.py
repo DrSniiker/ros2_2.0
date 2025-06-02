@@ -46,7 +46,7 @@ class Turtlebot3Navigator(Node):
 
         self.scan_ranges = []
         self.has_scan_received = False
-        self.has_map_received = True
+        self.has_map_received = False
 
         self.stop_distance = 0.2
         self.tele_twist = Twist()
@@ -178,22 +178,22 @@ class Turtlebot3Navigator(Node):
         print('create map')
         maze2D = numpy.array(data, dtype=numpy.int8).reshape((height, -width))
 
-        start = (2, 2)
-        goal = (2, 18)
-        maze = self.maze_from_csv('maze.csv')
-        maze = numpy.array(maze, dtype=numpy.int8)
+        # start = (2, 2)
+        # goal = (2, 18)
+        # maze = self.maze_from_csv('maze.csv')
+        # maze = numpy.array(maze, dtype=numpy.int8)
 
         print('############### BEFORE FUNCTION CALL ')
         print(f'{self.robot_pose.x=}')
-        # robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
-        # goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
+        robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
+        goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
 
-        robot_pose_relative = self.global_to_discrete(start[0], start[1])
-        goal_pose_relative = self.global_to_discrete(goal[0], goal[1])
+        # robot_pose_relative = self.global_to_discrete(start[0], start[1])
+        # goal_pose_relative = self.global_to_discrete(goal[0], goal[1])
 
         print('map')
         map_msg = UInt8MultiArray()
-        map_msg = self.multi_array_constructor(maze)
+        map_msg = self.multi_array_constructor(maze2D)
         self.a_star_map_pub.publish(map_msg)
 
         print('points')
@@ -208,7 +208,7 @@ class Turtlebot3Navigator(Node):
         print(robot_pose_relative)
         print(goal_pose_relative)
 
-        self.print_map_cv2(maze, robot_pose_relative, goal_pose_relative) #TODO add path
+        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
 
     def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
         """
