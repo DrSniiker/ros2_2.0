@@ -96,6 +96,7 @@ class Turtlebot3AStar(Node):
     # Tar in cameFrom listan och den nuvarande koordinaten som borde vara mål-koordinaten och
     # bygger tillbaka vägen från mål till start genom att följa tidigare koordinater.
     def reconstruct_path(self, cameFrom, current):
+        print('Reconstructing path...')
         totalPath = [current]
 
         # Bygger tillbaka vägen från målet till start
@@ -153,9 +154,9 @@ class Turtlebot3AStar(Node):
         minScore = math.inf
 
         for node in openSet:
-            for score in fScore:
-                if score[0] == node and score[1] < minScore:
-                    minScore = score[1]
+            for fNode, score in fScore:
+                if fNode == node and score < minScore:
+                    minScore = score
                     minCoords = node
         
         return minCoords
