@@ -20,6 +20,8 @@ class Turtlebot3AStar(Node):
         self.map_recieved = False
         self.coords_recieved = False
 
+        self.coords = []
+
         qos = QoSProfile(depth=10)
 
         self.path_list_pub = self.create_publisher(UInt8MultiArray, 'path_list', qos) #TODO
@@ -52,6 +54,7 @@ class Turtlebot3AStar(Node):
             self.map_recieved = False
             self.coords_recieved = False
             map2D = self.multi_array_deconstructor(self.a_star_map)
+            self.coords = self.multi_array_deconstructor(self.start_goal_coords)
             coords = self.multi_array_deconstructor(self.start_goal_coords)
             self.a_star(coords[0], coords[1], map2D)
             # self.a_star((38,100), (25,75), map2D)
@@ -178,7 +181,7 @@ class Turtlebot3AStar(Node):
             
             print(f"Checking neighbor: ({nx}, {ny})")
             print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
-            if nx == self.start_goal_coords[1][0]:
+            if nx == self.coords[1][0]:
                 input()
             
             if maze[nx][ny] == 0:  # 0 är en fri cell
