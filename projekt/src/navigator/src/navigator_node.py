@@ -155,6 +155,7 @@ class Turtlebot3Navigator(Node):
 
         dim_col = MultiArrayDimension()
         dim_col.label = "cols"
+        print(int(len(array[0])))
         dim_col.size = int(len(array[0]))
         dim_col.stride = int(len(array[0]))
 
