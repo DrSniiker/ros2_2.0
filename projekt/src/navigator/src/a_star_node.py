@@ -66,8 +66,7 @@ class Turtlebot3AStar(Node):
         # Reconstruct the 2D array from flat data list
         data = msg.data
         array_2d = [data[i * cols:(i + 1) * cols] for i in range(rows)]
-
-        print(f"Deconstructed array:\n{array_2d=}")
+        
         return array_2d
 
     # construct multiarray message
@@ -167,24 +166,15 @@ class Turtlebot3AStar(Node):
         x, y = coord[0], coord[1]
         neighbors = []
 
+        counter = 1
+
         # Kollar alla möjliga håll (N, NÖ, Ö, SÖ, S, SV, V, NV)
         directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-
-            # Kollar om koordinaten är inom kartans gränser
-            # if nx < 0:
-            #     nx = 0
-            # elif nx >= len(maze):
-            #     nx = len(maze) - 1
             
-            # if ny < 0:
-            #     ny = 0
-            # elif ny >= len(maze[0]):
-            #     ny = len(maze[0]) - 1
-            
-            print(f"Checking neighbor: ({nx}, {ny})")
-            print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
+            print(counter)
+            print(f"Checking neighbor: ({nx}, {ny})\n")
             # if nx == self.coords[1][0]:
             #     input()
 
@@ -192,6 +182,8 @@ class Turtlebot3AStar(Node):
                 if maze[nx][ny] == 0:  # 0 är en fri cell
                     print('Adding neighbor')
                     neighbors.append((nx, ny))
+            
+            counter += 1
         
         return neighbors
 
