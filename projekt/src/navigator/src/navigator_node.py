@@ -144,8 +144,6 @@ class Turtlebot3Navigator(Node):
     def multi_array_constructor(self, array):
         msg = UInt8MultiArray()
 
-        print(len(array[0]))
-
         # Flatten the 2D array for the 'data' field
         msg.data = [int(item) for sublist in array for item in sublist]
 
@@ -153,12 +151,12 @@ class Turtlebot3Navigator(Node):
         dim_row = MultiArrayDimension()
         dim_row.label = "rows"
         dim_row.size = len(array)
-        dim_row.stride = len(array * array[0])
+        dim_row.stride = len(array) * len(array[0])
 
         dim_col = MultiArrayDimension()
         dim_col.label = "cols"
-        dim_col.size = int(array[0])
-        dim_col.stride = int(array[0])
+        dim_col.size = len(array[0])
+        dim_col.stride = len(array[0])
 
         msg.layout.dim = [dim_row, dim_col]
         msg.layout.data_offset = 0
