@@ -165,6 +165,7 @@ class Turtlebot3AStar(Node):
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             print(f"Checking neighbor: ({nx}, {ny})")
+            print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
             if maze[nx][ny] == 0:  # 0 är en fri cell
                 neighbors.append((nx, ny))
         
