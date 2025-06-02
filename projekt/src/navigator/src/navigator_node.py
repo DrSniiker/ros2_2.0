@@ -274,7 +274,7 @@ class Turtlebot3Navigator(Node):
             twist = self.tele_twist
             self.cmd_vel_pub.publish(twist)
 
-    def maze_from_csv(filename):
+    def maze_from_csv(self, filename):
         maze = []
         with open(filename, newline='') as csvfile:
             reader = csv.reader(csvfile)
