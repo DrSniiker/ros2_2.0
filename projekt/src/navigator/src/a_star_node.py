@@ -53,8 +53,8 @@ class Turtlebot3AStar(Node):
             self.coords_recieved = False
             map2D = self.multi_array_deconstructor(self.a_star_map)
             coords = self.multi_array_deconstructor(self.start_goal_coords)
-            #self.a_star(coords[0], coords[1], map2D)
-            self.a_star((38,100), (25,75), map2D)
+            self.a_star(coords[0], coords[1], map2D)
+            # self.a_star((38,100), (25,75), map2D)
 
     def multi_array_deconstructor(self, msg):
         rows = msg.layout.dim[0].size
