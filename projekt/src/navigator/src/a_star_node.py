@@ -170,7 +170,7 @@ class Turtlebot3AStar(Node):
         counter = 1
 
         # Kollar alla möjliga håll (N, NÖ, Ö, SÖ, S, SV, V, NV)
-        directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+        directions = [(-1,0), (1,0), (0,-1), (0,1), (1,1), (1,-1), (-1,1), (-1,-1)]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             
