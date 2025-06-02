@@ -210,7 +210,10 @@ class Turtlebot3AStar(Node):
             
             openSet.remove(current)
 
-            for neighbor in self.get_neighbors(current, maze):
+            neighbors = self.get_neighbors(current, maze)
+
+            for neighbor in neighbors:
+                print(f'{len(neighbors)}')
                 print('in for 1')
                 tentativeGScore = self.get_score(gScore, current) + 1
                 if tentativeGScore < self.get_score(gScore, neighbor):
