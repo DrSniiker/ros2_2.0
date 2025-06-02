@@ -210,6 +210,8 @@ class Turtlebot3AStar(Node):
             
             openSet.remove(current)
 
+            print(f'{openSet=}\n')
+
             neighbors = self.get_neighbors(current, maze)
 
             for neighbor in neighbors:
