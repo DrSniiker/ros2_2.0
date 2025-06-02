@@ -164,6 +164,18 @@ class Turtlebot3AStar(Node):
         directions = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
+
+            # Kollar om koordinaten är inom kartans gränser
+            if nx < 0:
+                nx = 0
+            elif nx >= len(maze):
+                nx = len(maze) - 1
+            
+            if ny < 0:
+                ny = 0
+            elif ny >= len(maze[0]):
+                ny = len(maze[0]) - 1
+            
             print(f"Checking neighbor: ({nx}, {ny})")
             print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
             if maze[nx][ny] == 0:  # 0 är en fri cell
