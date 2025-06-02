@@ -217,26 +217,25 @@ class Turtlebot3AStar(Node):
             openSet.remove(current)
 
             for neighbor in self.get_neighbors(current, maze):
-                print('in for 1')
+                # print('in for 1')
                 tentativeGScore = self.get_score(gScore, current) + 1
                 if tentativeGScore < self.get_score(gScore, neighbor):
-                    print('in if 1')
+                    # print('in if 1')
                     # Denna väg är bättre än tidigare känd väg, uppdatera vägen
                     for coord, previous in cameFrom:
-                        print('in for 2')
+                        # print('in for 2')
                         # Ta bort tidigare koordinat om den finns i cameFrom
                         if coord == neighbor:
-                            print('in if 2')
+                            # print('in if 2')
                             cameFrom.remove((coord, previous))
                             break
+
                     cameFrom.append((neighbor, current))
-
                     self.set_score(gScore, neighbor, tentativeGScore)
-
                     self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
 
                     if neighbor not in openSet:
-                        print('Adding neighbor to openSet')
+                        # print('Adding neighbor to openSet')
                         openSet.append(neighbor)
         
         return None  # Ingen väg hittades
