@@ -144,20 +144,21 @@ class Turtlebot3Navigator(Node):
     def multi_array_constructor(self, array):
         msg = UInt8MultiArray()
 
+        print(len(array[0]))
+
         # Flatten the 2D array for the 'data' field
         msg.data = [int(item) for sublist in array for item in sublist]
 
         # Define the layout dimensions
         dim_row = MultiArrayDimension()
         dim_row.label = "rows"
-        dim_row.size = int(len(array))
-        dim_row.stride = int(len(array) * len(array[0]))
+        dim_row.size = len(array)
+        dim_row.stride = len(array * array[0])
 
         dim_col = MultiArrayDimension()
         dim_col.label = "cols"
-        print(int(len(array[0])))
-        dim_col.size = int(len(array[0]))
-        dim_col.stride = int(len(array[0]))
+        dim_col.size = int(array[0])
+        dim_col.stride = int(array[0])
 
         msg.layout.dim = [dim_row, dim_col]
         msg.layout.data_offset = 0
@@ -198,8 +199,9 @@ class Turtlebot3Navigator(Node):
         self.a_star_map_pub.publish(map_msg)
 
         print('points')
+        points = numpy.array([robot_pose_relative, goal_pose_relative], dtype=numpy.int8)
         start_goal_msg = UInt8MultiArray()
-        start_goal_msg= self.multi_array_constructor([robot_pose_relative, goal_pose_relative])
+        start_goal_msg= self.multi_array_constructor()
         self.start_goal_coords_pub.publish(start_goal_msg)
 
         # A*
