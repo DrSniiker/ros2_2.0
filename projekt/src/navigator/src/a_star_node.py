@@ -56,7 +56,7 @@ class Turtlebot3AStar(Node):
             map2D = self.multi_array_deconstructor(self.a_star_map)
             self.coords = self.multi_array_deconstructor(self.start_goal_coords)
             coords = self.multi_array_deconstructor(self.start_goal_coords)
-            self.a_star(coords[0], coords[1], map2D)
+            self.a_star((coords[0][0], coords[0][1]), (coords[1][0], coords[1][1]), map2D)
             # self.a_star((38,100), (25,75), map2D)
 
     def multi_array_deconstructor(self, msg):
