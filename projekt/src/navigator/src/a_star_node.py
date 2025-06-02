@@ -178,7 +178,9 @@ class Turtlebot3AStar(Node):
             
             print(f"Checking neighbor: ({nx}, {ny})")
             print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
-            input()
+            if nx == self.start_goal_coords.data[1][0]:
+                input()
+            
             if maze[nx][ny] == 0:  # 0 är en fri cell
                 neighbors.append((nx, ny))
         
