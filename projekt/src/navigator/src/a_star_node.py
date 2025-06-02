@@ -180,7 +180,7 @@ class Turtlebot3AStar(Node):
 
             if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
                 if maze[nx][ny] == 0:  # 0 är en fri cell
-                    print('Adding neighbor')
+                    print('Adding neighbor\n')
                     neighbors.append((nx, ny))
             
             counter += 1
@@ -202,7 +202,7 @@ class Turtlebot3AStar(Node):
         while openSet:
             current = self.get_node_with_lowest_fscore(openSet, fScore)
 
-            print(f'{current=}, {goal=}')
+            print(f'{current=}, {goal=}\n')
             if current == goal:
                 path = self.reconstruct_path(cameFrom, current)
                 self.path_list_pub.publish(path)
