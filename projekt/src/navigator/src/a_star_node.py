@@ -186,6 +186,7 @@ class Turtlebot3AStar(Node):
 
             if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
                 if maze[nx][ny] == 0:  # 0 är en fri cell
+                    print('Adding neighbor')
                     neighbors.append((nx, ny))
         
         return neighbors
