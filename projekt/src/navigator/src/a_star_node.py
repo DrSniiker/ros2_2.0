@@ -169,15 +169,15 @@ class Turtlebot3AStar(Node):
             nx, ny = x + dx, y + dy
 
             # Kollar om koordinaten är inom kartans gränser
-            if nx < 0:
-                nx = 0
-            elif nx >= len(maze):
-                nx = len(maze) - 1
+            # if nx < 0:
+            #     nx = 0
+            # elif nx >= len(maze):
+            #     nx = len(maze) - 1
             
-            if ny < 0:
-                ny = 0
-            elif ny >= len(maze[0]):
-                ny = len(maze[0]) - 1
+            # if ny < 0:
+            #     ny = 0
+            # elif ny >= len(maze[0]):
+            #     ny = len(maze[0]) - 1
             
             print(f"Checking neighbor: ({nx}, {ny})")
             print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
