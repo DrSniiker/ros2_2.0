@@ -183,9 +183,10 @@ class Turtlebot3AStar(Node):
             print(f'Maze value: {len(maze)=}, {len(maze[0])=}')
             if nx == self.coords[1][0]:
                 input()
-            
-            if maze[nx][ny] == 0:  # 0 är en fri cell
-                neighbors.append((nx, ny))
+
+            if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
+                if maze[nx][ny] == 0:  # 0 är en fri cell
+                    neighbors.append((nx, ny))
         
         return neighbors
 
