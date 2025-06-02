@@ -31,6 +31,7 @@ from sensor_msgs.msg import LaserScan
 from time import sleep
 import numpy
 import cv2
+import csv
 
 
 class Turtlebot3Navigator(Node):
@@ -177,13 +178,20 @@ class Turtlebot3Navigator(Node):
         print('create map')
         maze2D = numpy.array(data, dtype=numpy.int8).reshape((height, -width))
 
+        start = (2, 2)
+        goal = (2, 18)
+        maze = self.maze_from_csv('maze.csv')
+
         print('############### BEFORE FUNCTION CALL ')
         print(f'{self.robot_pose.x=}')
-        robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
-        goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
+        # robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
+        # goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
+
+        robot_pose_relative = self.global_to_discrete(start[0], start[1])
+        goal_pose_relative = self.global_to_discrete(goal[0], goal[1])
 
         map_msg = UInt8MultiArray()
-        map_msg = self.multi_array_constructor(maze2D)
+        map_msg = self.multi_array_constructor(maze)
         self.a_star_map_pub.publish(map_msg)
 
 
@@ -196,11 +204,7 @@ class Turtlebot3Navigator(Node):
         print(robot_pose_relative)
         print(goal_pose_relative)
 
-        deconstructed = self.multi_array_deconstructor(start_goal_msg)
-        print(deconstructed)
-
-        self.print_map_cv2(maze2D, deconstructed[0], deconstructed[1]) #TODO add path
-        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
+        self.print_map_cv2(maze, robot_pose_relative, goal_pose_relative) #TODO add path
 
     def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
         """
@@ -269,6 +273,19 @@ class Turtlebot3Navigator(Node):
         else:
             twist = self.tele_twist
             self.cmd_vel_pub.publish(twist)
+
+    def maze_from_csv(filename):
+        maze = []
+        with open(filename, newline='') as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                # Filtrera bort tomma celler i varje rad
+                filtered_row = [cell for cell in row if cell.strip() != '']
+                if not filtered_row:
+                    # Hoppa över tomma rader
+                    continue
+                maze.append([int(cell) for cell in filtered_row])
+        return maze
 
 
 def main(args=None):
