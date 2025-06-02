@@ -182,6 +182,7 @@ class Turtlebot3Navigator(Node):
         start = (2, 2)
         goal = (2, 18)
         maze = self.maze_from_csv('maze.csv')
+        maze = numpy.array(maze, dtype=numpy.int8)
 
         print('############### BEFORE FUNCTION CALL ')
         print(f'{self.robot_pose.x=}')
