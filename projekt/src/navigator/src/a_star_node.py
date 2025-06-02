@@ -237,6 +237,7 @@ class Turtlebot3AStar(Node):
                         # print('Adding neighbor to openSet')
                         openSet.append(neighbor)
         
+        print('No path found')
         return None  # Ingen väg hittades
 
 
