@@ -199,7 +199,8 @@ class Turtlebot3Navigator(Node):
         self.a_star_map_pub.publish(map_msg)
 
         print('points')
-        points = numpy.array([robot_pose_relative, goal_pose_relative], dtype=numpy.int8)
+        points = [robot_pose_relative, goal_pose_relative]
+        points = numpy.array(points, dtype=numpy.int8)
         start_goal_msg = UInt8MultiArray()
         start_goal_msg= self.multi_array_constructor()
         self.start_goal_coords_pub.publish(start_goal_msg)
