@@ -45,7 +45,7 @@ class Turtlebot3Navigator(Node):
         print('----------------------------------------------')
 
         self.scan_ranges = []
-        self.has_scan_received = False
+        self.has_scan_received = True
         self.has_map_received = False
 
         self.stop_distance = 0.2
