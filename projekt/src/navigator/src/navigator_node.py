@@ -199,7 +199,7 @@ class Turtlebot3Navigator(Node):
         deconstructed = self.multi_array_deconstructor(start_goal_msg)
         print(deconstructed)
 
-        # self.print_map_cv2(deconstructed, robot_pose_relative, goal_pose_relative) #TODO add path
+        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
 
     def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
         """
