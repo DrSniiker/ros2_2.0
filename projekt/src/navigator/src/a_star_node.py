@@ -98,9 +98,9 @@ class Turtlebot3AStar(Node):
     
     # Tar in cameFrom listan och den nuvarande koordinaten som borde vara mål-koordinaten och
     # bygger tillbaka vägen från mål till start genom att följa tidigare koordinater.
-    def reconstruct_path(self, cameFrom, current):
+    def reconstruct_path(self, cameFrom, current, totalPath):
         print('Reconstructing path...')
-        totalPath = [current]
+        totalPath.append(current)
 
         # Bygger tillbaka vägen från målet till start
         while True:
@@ -118,8 +118,6 @@ class Turtlebot3AStar(Node):
             totalPath.insert(0, current)
         
         print('Yay!')
-
-        return totalPath
 
     # Heuristikfunktionen som tar in två koordinater, a och b, och beräknar avståndet mellan de.
     def heuristic(self, a, b):
@@ -175,24 +173,23 @@ class Turtlebot3AStar(Node):
             nx, ny = x + dx, y + dy
             
             print(f"Checking neighbor: ({nx}, {ny})\n")
-            # if nx == self.coords[1][0]:
-            #     input()
+            
 
-            # Convert maze to numpy array
-            maze_numpy = numpy.array(self.map2D, dtype=numpy.uint8)
-
+            #print(self.map2D)
+            map2D = numpy.array(self.map2D, dtype=numpy.uint8)
+            #print('after numpy array convert')
+            #print(map2D)
             # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
-            maze = (maze_numpy >= self.threshold).astype(numpy.uint8)
+            binary_map = (map2D >= self.threshold).astype(numpy.uint8)
             
             #convert back to python arrooy
-            maze = numpy.array(maze).tolist()
-            
+            maze = numpy.array(binary_map).tolist()
+            #print(maze)
             # check if index is withing the map
             if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
-                if not maze[nx][ny]:  # 0 är en fri cell #TODO fattar inte att det är vägg
+                #check if there's a wall
+                if not maze[nx][ny]:  # 0 är en fri cell 
                     print('Adding neighbor\n')
-                    print(f'Checking for wall {maze[nx][ny]}\n')
-                    print(f'Checking coords {nx} and {ny}\n')
                     neighbors.append((nx, ny))
 
     # A* funktionen som tar in en startkoordinat, en målkoordinat och en karta i form av en 2D lista
@@ -203,19 +200,24 @@ class Turtlebot3AStar(Node):
         cameFrom = []  # Lista med tuples: (coord, previous_coord)
         gScore = []  # Lista med tuples: (coord, gscore)
         fScore = []  # Lista med tuples: (coord, fscore)
+        visited = [] # Lista med tidigare besökta koordinater 
 
         self.set_score(gScore, start, 0)
         self.set_score(fScore, start, self.heuristic(start, goal))
-
+        
         while openSet:
             current = self.get_node_with_lowest_fscore(openSet, fScore)
             print(f'{current=}, {start=}, {goal=}\n')
 
             if current == goal:
-                path = self.reconstruct_path(cameFrom, current)
+                path = []
+                self.reconstruct_path(cameFrom, current, path)
                 self.path_list_pub.publish(path)
             
             openSet.remove(current)
+
+            if current not in visited:
+                visited.append(current)
 
             print(f'{openSet=}\n')
 
@@ -223,40 +225,57 @@ class Turtlebot3AStar(Node):
             self.get_neighbors(neighbors, current)
             print('neighbors:', neighbors)
 
-            for neighbor in neighbors:
-                print('in for 1')
 
-                self.set_score(gScore, neighbor, self.heuristic(start, neighbor))
+            ########################################################
+            for neighbor in neighbors:
+                #print('in for 1')
+
+                self.set_score(gScore, neighbor, self.get_score(gScore, current) + 1)
                 print(self.get_score(gScore, neighbor))
 
+                #set f score
+                self.set_score(fScore, neighbor, self.get_score(gScore, neighbor) + self.heuristic(neighbor, goal))
+
+                #TODO någonting spökar
                 tentativeGScore = self.get_score(gScore, current) + 1
                 print(f'{tentativeGScore=}')
-                if tentativeGScore < self.get_score(gScore, neighbor):
-                    print('in if 1')
-                    # Denna väg är bättre än tidigare känd väg, uppdatera vägen
-                    for coord, previous in cameFrom:
-                        # print('in for 2')
-                        # Ta bort tidigare koordinat om den finns i cameFrom
-                        if coord == neighbor:
-                            # print('in if 2')
-                            cameFrom.remove((coord, previous))
-                            break
 
-                    cameFrom.append((neighbor, current))
-                    self.set_score(gScore, neighbor, tentativeGScore)
-                    self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
+                # Check if this neighbor is already in open_list with a better path
+                existing = next((n for n in openSet if n == neighbor), None)
 
-                    if neighbor not in openSet:
-                        print(f'Adding {neighbor} to openSet')
-                        openSet.append(neighbor)
+                # om det inte finns en bättre väg
+                if existing and self.get_score(gScore, neighbor) >= self.get_score(gScore, existing):
+                    continue # already has a better path
+                # add or update the openSet list
+                if existing:
+                    openSet.remove(existing)
+                openSet.append(neighbor)
+
+                    # # Denna väg är bättre än tidigare känd väg, uppdatera vägen
+                    # for coord, previous in cameFrom:
+                    #     # print('in for 2')
+                    #     # Ta bort tidigare koordinat om den finns i cameFrom
+                    #     if coord == neighbor:
+                    #         # print('in if 2')
+                    #         cameFrom.remove((coord, previous))
+                    #         break
+
+                    # cameFrom.append((neighbor, current))
+                    # self.set_score(gScore, neighbor, tentativeGScore)
+                    # self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
+
+                    # if neighbor not in openSet:
+                    #     print(f'Adding {neighbor} to openSet')
+                    #     openSet.append(neighbor)
             
             print(f'{openSet=}')
-            self.print_map_cv2(start, goal, openSet)
+            print(f'{cameFrom=}')
+            self.print_map_cv2(start, goal, openSet, cameFrom)
         
         print('No path found')
         return None  # Ingen väg hittades
     
-    def print_map_cv2(self, robot_pose, goal_pose, openset):
+    def print_map_cv2(self, robot_pose, goal_pose, openset, cameFrom):
         """
         Visualize a 2D map with robot and goal positions using OpenCV.
 
@@ -277,9 +296,14 @@ class Turtlebot3AStar(Node):
 
         # Convert single channel to BGR for colored markings
         img_color = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-        
+
+
+        for coord, _ in cameFrom:
+            cv2.rectangle(img_color, coord, coord, color=(127, 127, 0), thickness=-1)
+                
         for coord in openset:
-            cv2.circle(img_color, coord, radius=1, color=(127, 0, 127), thickness=-1)
+            cv2.rectangle(img_color, coord, coord, color=(127, 0, 127), thickness=-1)
+
 
         # Draw origin as a red circle
         cv2.circle(img_color, (0,0), radius=2, color=(0, 0, 255), thickness=-1)
@@ -296,7 +320,7 @@ class Turtlebot3AStar(Node):
 
         # Show the image
         cv2.imshow('Map Visualization', img_resized)
-        cv2.waitKey(100)
+        cv2.waitKey(0)
         cv2.destroyAllWindows()
 
 
