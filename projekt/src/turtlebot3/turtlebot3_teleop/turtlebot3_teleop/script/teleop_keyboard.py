@@ -148,9 +148,9 @@ def main():
     qos = QoSProfile(depth=10)
     node = rclpy.create_node('teleop_keyboard')
     if ROS_DISTRO == 'humble':
-        pub = node.create_publisher(Twist, 'cmd_vel_raw', qos)
+        pub = node.create_publisher(Twist, 'cmd_vel', qos)
     else:
-        pub = node.create_publisher(TwistStamped, 'cmd_vel_raw', qos)
+        pub = node.create_publisher(TwistStamped, 'cmd_vel', qos)
 
     status = 0
     target_linear_velocity = 0.0

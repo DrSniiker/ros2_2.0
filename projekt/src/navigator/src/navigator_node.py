@@ -31,7 +31,6 @@ from sensor_msgs.msg import LaserScan
 from time import sleep
 import numpy
 import cv2
-import csv
 
 
 class Turtlebot3Navigator(Node):
@@ -47,6 +46,7 @@ class Turtlebot3Navigator(Node):
         self.scan_ranges = []
         self.has_scan_received = False
         self.has_map_received = False
+        self.threshold=75
 
         self.stop_distance = 0.2
         self.tele_twist = Twist()
@@ -208,9 +208,9 @@ class Turtlebot3Navigator(Node):
         print(robot_pose_relative)
         print(goal_pose_relative)
 
-        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative) #TODO add path
+        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative, self.threshold) #TODO add path
 
-    def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold=50):
+    def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold):
         """
         Visualize a 2D map with robot and goal positions using OpenCV.
 
@@ -233,13 +233,13 @@ class Turtlebot3Navigator(Node):
         img_color = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
         # Draw origin as a red circle
-        cv2.circle(img_color, (0,0), radius=3, color=(0, 0, 255), thickness=-1)
+        cv2.circle(img_color, (0,0), radius=2, color=(0, 0, 255), thickness=-1)
 
         # Draw robot position as a blue circle
-        cv2.circle(img_color, robot_pose, radius=5, color=(255, 0, 0), thickness=-1)
+        cv2.circle(img_color, robot_pose, radius=2, color=(255, 0, 0), thickness=-1)
 
         # Draw goal position as a green circle
-        cv2.circle(img_color, goal_pose, radius=5, color=(0, 255, 0), thickness=-1)
+        cv2.circle(img_color, goal_pose, radius=2, color=(0, 255, 0), thickness=-1)
 
         # Optionally resize for better visibility
         scale = 4
@@ -277,19 +277,6 @@ class Turtlebot3Navigator(Node):
         else:
             twist = self.tele_twist
             self.cmd_vel_pub.publish(twist)
-
-    def maze_from_csv(self, filename):
-        maze = []
-        with open(filename, newline='') as csvfile:
-            reader = csv.reader(csvfile)
-            for row in reader:
-                # Filtrera bort tomma celler i varje rad
-                filtered_row = [cell for cell in row if cell.strip() != '']
-                if not filtered_row:
-                    # Hoppa över tomma rader
-                    continue
-                maze.append([int(cell) for cell in filtered_row])
-        return maze
 
 
 def main(args=None):
