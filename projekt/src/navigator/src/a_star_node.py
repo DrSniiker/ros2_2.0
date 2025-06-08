@@ -9,7 +9,7 @@ from rclpy.qos import QoSProfile
 import math
 import numpy
 import cv2
-
+import heapq
 
 class Turtlebot3AStar(Node):
 
@@ -61,7 +61,7 @@ class Turtlebot3AStar(Node):
             self.coords = self.multi_array_deconstructor(self.start_goal_coords)
             coords = self.multi_array_deconstructor(self.start_goal_coords)
             self.a_star((coords[0][0], coords[0][1]), (coords[1][0], coords[1][1]))
-            # self.a_star((38,100), (25,75), map2D)
+            # self.a_star_chat((coords[0][0], coords[0][1]), (coords[1][0], coords[1][1]))
 
     def multi_array_deconstructor(self, msg):
         rows = msg.layout.dim[0].size
@@ -127,7 +127,7 @@ class Turtlebot3AStar(Node):
 
     # Tar in en av scorlistorna, gScore eller fScore, en koordinat och ett nytt värde som den
     # koordinaten ska få och uppdaterar eller lägger till den i listan.
-    def set_score(scoreList, coord, newScore):
+    def set_score(self, scoreList, coord, newScore):
         if scoreList == []:
             scoreList.append((coord, newScore))
             return
@@ -171,36 +171,34 @@ class Turtlebot3AStar(Node):
         # Kollar alla möjliga håll (N, NÖ, Ö, SÖ, S, SV, V, NV)
         directions = [(0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)]
 
-        #print(self.map2D)
-        map2D = numpy.array(self.map2D, dtype=numpy.uint8)
-        #print('after numpy array convert')
-        #print(map2D)
+        numpy_map = numpy.array(self.map2D, dtype=numpy.uint8)
+        
         # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
-        binary_map = (map2D >= self.threshold).astype(numpy.uint8)
+        binary_map = (numpy_map >= self.threshold).astype(numpy.uint8)
+        bin_map = 255 * binary_map
         
         #convert back to python arrooy
-        maze = numpy.array(binary_map).tolist()
-        
+        maze = numpy.array(bin_map).tolist()
+
+
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-
-            if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
-                if maze[nx][ny] == 0:  # 0 är en fri cell
+            if 0 <= nx and nx < len(self.map2D) and 0 <= ny and ny < len(self.map2D[0]):
+                if maze[ny][nx] == 0:  # 1 är en fri cell
                     neighbors.append((nx, ny))
                 else:
                     continue
-            else:
-                continue
-            
             if (dx, dy) == (0, 1) or (dx, dy) == (1, 0) or (dx, dy) == (0, -1) or (dx, dy) == (-1, 0):
                 stepCosts.append(1)
             elif (dx, dy) == (1, 1) or (dx, dy) == (1, -1) or (dx, dy) == (-1, -1) or (dx, dy) == (-1, 1):
                 stepCosts.append(math.sqrt(dx**2 + dy**2))
 
+
+
     # A* funktionen som tar in en startkoordinat, en målkoordinat och en karta i form av en 2D lista
     # med ettor och nollor och räknar ut den kortaste vägen på kartan från start till mål med hjälp
     # av A* algoritmen.
-    def a_star(self, start, goal, maze):
+    def a_star(self, start, goal):
         openSet = [start]  # Lista med hittade koordinater som kan behöva undersökas
         cameFrom = []  # Lista med tuples: (coord, previous_coord)
         gScore = []  # Lista med tuples: (coord, gscore)
@@ -209,24 +207,28 @@ class Turtlebot3AStar(Node):
         self.set_score(gScore, start, 0)
         self.set_score(fScore, start, self.heuristic(start, goal))
 
+        
+
         while openSet:
             current = self.get_node_with_lowest_fscore(openSet, fScore)
             
             if current == goal:
                 path = []
                 self.reconstruct_path(cameFrom, current, path)
-                self.path_list_pub.publish(path)
+                self.print_map_cv2(start, goal, path, cameFrom)
+
+                multi_array_path = self.multi_array_constructor(path)
+
+                self.path_list_pub.publish(multi_array_path )
             
             openSet.remove(current)
             
             neighbors = []
             stepCosts = []
-            self.get_neighbors(neighbors, stepCosts, current, maze)
-            print(f'{neighbors=}')
-            print(f'{stepCosts=}')
-
+            stepCostIdx = 0
+            self.get_neighbors(neighbors, stepCosts, current)
+            
             for neighbor in neighbors:
-                stepCostIdx = 0
                 tentativeGScore = self.get_score(gScore, current) + stepCosts[stepCostIdx]
                 stepCostIdx += 1
                 if tentativeGScore < self.get_score(gScore, neighbor):
@@ -249,8 +251,8 @@ class Turtlebot3AStar(Node):
                         openSet.append(neighbor)
         
         return None  # Ingen väg hittades
-    
-    def print_map_cv2(self, robot_pose, goal_pose, openset, cameFrom):
+
+    def print_map_cv2(self, robot_pose, goal_pose, path, cameFrom):
         """
         Visualize a 2D map with robot and goal positions using OpenCV.
 
@@ -276,7 +278,7 @@ class Turtlebot3AStar(Node):
         for coord, _ in cameFrom:
             cv2.rectangle(img_color, coord, coord, color=(127, 127, 0), thickness=-1)
                 
-        for coord in openset:
+        for coord in path:
             cv2.rectangle(img_color, coord, coord, color=(127, 0, 127), thickness=-1)
 
 
