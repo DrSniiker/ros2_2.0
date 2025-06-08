@@ -17,6 +17,7 @@ class Turtlebot3AStar(Node):
         super().__init__('turtlebot3_a_star_node')
         
         self.a_star_map = UInt8MultiArray()
+        self.map2D = UInt8MultiArray()
         self.start_goal_coords = UInt8MultiArray()
         self.threshold = 75
 
@@ -96,10 +97,10 @@ class Turtlebot3AStar(Node):
         self.get_logger().info('Constructed multi-dimensional array')
         return msg
     
+    
     # Tar in cameFrom listan och den nuvarande koordinaten som borde vara mål-koordinaten och
     # bygger tillbaka vägen från mål till start genom att följa tidigare koordinater.
     def reconstruct_path(self, cameFrom, current, totalPath):
-        print('Reconstructing path...')
         totalPath.append(current)
 
         # Bygger tillbaka vägen från målet till start
@@ -121,33 +122,33 @@ class Turtlebot3AStar(Node):
 
     # Heuristikfunktionen som tar in två koordinater, a och b, och beräknar avståndet mellan de.
     def heuristic(self, a, b):
-        # Manhattan distance as heuristic
+        # Manhattan distance as self.heuristic
         return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
     # Tar in en av scorlistorna, gScore eller fScore, en koordinat och ett nytt värde som den
     # koordinaten ska få och uppdaterar eller lägger till den i listan.
-    def set_score(self, score_list, coord, newScore):
-        if score_list == []:
-            score_list.append((coord, newScore))
+    def set_score(scoreList, coord, newScore):
+        if scoreList == []:
+            scoreList.append((coord, newScore))
             return
 
-        for i in range(len(score_list)):
-            if score_list[i][0] == coord:
-                score_list[i] = (coord, newScore)
+        for i in range(len(scoreList)):
+            if scoreList[i][0] == coord:
+                scoreList[i] = (coord, newScore)
                 return
 
-        score_list.append((coord, newScore))
+        scoreList.append((coord, newScore))
 
     # Tar in en av scorlistorna, gScore eller fScore och en koordinat och returnerar värdet som den
     # koordinaten har i listan. Om den inte finns returneras oändligheten.
-    def get_score(self, score_list, coord):
-        newScore = math.inf
+    def get_score(self, scoreList, coord):
+        score = math.inf
 
-        for node, score in score_list:
-            if node == coord:
-                newScore = score
+        for n, s in scoreList:
+            if n == coord:
+                score = s
 
-        return newScore
+        return score
 
     # Tar in openSet listan och fScore listan och returnerar den nod i openSet som har lägst fScore.
     def get_node_with_lowest_fscore(self, openSet, fScore):
@@ -164,115 +165,89 @@ class Turtlebot3AStar(Node):
 
     # Tar in en koordinat och en karta och returnerar alla grannar till den koordinaten som är gångbara
     # (dvs. har värdet 0 i kartan).
-    def get_neighbors(self, neighbors, coord):
+    def get_neighbors(self, neighbors, stepCosts, coord):
         x, y = coord[0], coord[1]
 
         # Kollar alla möjliga håll (N, NÖ, Ö, SÖ, S, SV, V, NV)
-        directions = [(-1,0), (1,0), (0,-1), (0,1), (1,1), (1,-1), (-1,1), (-1,-1)]
+        directions = [(0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1)]
+
+        #print(self.map2D)
+        map2D = numpy.array(self.map2D, dtype=numpy.uint8)
+        #print('after numpy array convert')
+        #print(map2D)
+        # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
+        binary_map = (map2D >= self.threshold).astype(numpy.uint8)
+        
+        #convert back to python arrooy
+        maze = numpy.array(binary_map).tolist()
+        
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            
-            print(f"Checking neighbor: ({nx}, {ny})\n")
-            
 
-            #print(self.map2D)
-            map2D = numpy.array(self.map2D, dtype=numpy.uint8)
-            #print('after numpy array convert')
-            #print(map2D)
-            # Apply threshold: pixels above threshold are obstacles (1), below are free (0)
-            binary_map = (map2D >= self.threshold).astype(numpy.uint8)
-            
-            #convert back to python arrooy
-            maze = numpy.array(binary_map).tolist()
-            #print(maze)
-            # check if index is withing the map
             if 0 <= nx and nx < len(maze) and 0 <= ny and ny < len(maze[0]):
-                #check if there's a wall
-                if not maze[nx][ny]:  # 0 är en fri cell 
-                    print('Adding neighbor\n')
+                if maze[nx][ny] == 0:  # 0 är en fri cell
                     neighbors.append((nx, ny))
+                else:
+                    continue
+            else:
+                continue
+            
+            if (dx, dy) == (0, 1) or (dx, dy) == (1, 0) or (dx, dy) == (0, -1) or (dx, dy) == (-1, 0):
+                stepCosts.append(1)
+            elif (dx, dy) == (1, 1) or (dx, dy) == (1, -1) or (dx, dy) == (-1, -1) or (dx, dy) == (-1, 1):
+                stepCosts.append(math.sqrt(dx**2 + dy**2))
 
     # A* funktionen som tar in en startkoordinat, en målkoordinat och en karta i form av en 2D lista
     # med ettor och nollor och räknar ut den kortaste vägen på kartan från start till mål med hjälp
     # av A* algoritmen.
-    def a_star(self, start, goal):
+    def a_star(self, start, goal, maze):
         openSet = [start]  # Lista med hittade koordinater som kan behöva undersökas
         cameFrom = []  # Lista med tuples: (coord, previous_coord)
         gScore = []  # Lista med tuples: (coord, gscore)
         fScore = []  # Lista med tuples: (coord, fscore)
-        visited = [] # Lista med tidigare besökta koordinater 
 
         self.set_score(gScore, start, 0)
         self.set_score(fScore, start, self.heuristic(start, goal))
-        
+
         while openSet:
             current = self.get_node_with_lowest_fscore(openSet, fScore)
-            print(f'{current=}, {start=}, {goal=}\n')
-
+            
             if current == goal:
                 path = []
                 self.reconstruct_path(cameFrom, current, path)
                 self.path_list_pub.publish(path)
             
             openSet.remove(current)
-
-            if current not in visited:
-                visited.append(current)
-
-            print(f'{openSet=}\n')
-
-            neighbors = []
-            self.get_neighbors(neighbors, current)
-            print('neighbors:', neighbors)
-
-
-            ########################################################
-            for neighbor in neighbors:
-                #print('in for 1')
-
-                self.set_score(gScore, neighbor, self.get_score(gScore, current) + 1)
-                print(self.get_score(gScore, neighbor))
-
-                #set f score
-                self.set_score(fScore, neighbor, self.get_score(gScore, neighbor) + self.heuristic(neighbor, goal))
-
-                #TODO någonting spökar
-                tentativeGScore = self.get_score(gScore, current) + 1
-                print(f'{tentativeGScore=}')
-
-                # Check if this neighbor is already in open_list with a better path
-                existing = next((n for n in openSet if n == neighbor), None)
-
-                # om det inte finns en bättre väg
-                if existing and self.get_score(gScore, neighbor) >= self.get_score(gScore, existing):
-                    continue # already has a better path
-                # add or update the openSet list
-                if existing:
-                    openSet.remove(existing)
-                openSet.append(neighbor)
-
-                    # # Denna väg är bättre än tidigare känd väg, uppdatera vägen
-                    # for coord, previous in cameFrom:
-                    #     # print('in for 2')
-                    #     # Ta bort tidigare koordinat om den finns i cameFrom
-                    #     if coord == neighbor:
-                    #         # print('in if 2')
-                    #         cameFrom.remove((coord, previous))
-                    #         break
-
-                    # cameFrom.append((neighbor, current))
-                    # self.set_score(gScore, neighbor, tentativeGScore)
-                    # self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
-
-                    # if neighbor not in openSet:
-                    #     print(f'Adding {neighbor} to openSet')
-                    #     openSet.append(neighbor)
             
-            print(f'{openSet=}')
-            print(f'{cameFrom=}')
-            self.print_map_cv2(start, goal, openSet, cameFrom)
+            neighbors = []
+            stepCosts = []
+            self.get_neighbors(neighbors, stepCosts, current, maze)
+            print(f'{neighbors=}')
+            print(f'{stepCosts=}')
+
+            for neighbor in neighbors:
+                stepCostIdx = 0
+                tentativeGScore = self.get_score(gScore, current) + stepCosts[stepCostIdx]
+                stepCostIdx += 1
+                if tentativeGScore < self.get_score(gScore, neighbor):
+                    # print('in if 1')
+                    # Denna väg är bättre än tidigare känd väg, uppdatera vägen
+                    for coord, previous in cameFrom:
+                        # print('in for 2')
+                        # Ta bort tidigare koordinat om den finns i cameFrom
+                        if coord == neighbor:
+                            # print('in if 2')
+                            cameFrom.remove((coord, previous))
+                            break
+
+                    cameFrom.append((neighbor, current))
+                    self.set_score(gScore, neighbor, tentativeGScore)
+                    self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
+
+                    if neighbor not in openSet:
+                        # print('Adding neighbor to openSet')
+                        openSet.append(neighbor)
         
-        print('No path found')
         return None  # Ingen väg hittades
     
     def print_map_cv2(self, robot_pose, goal_pose, openset, cameFrom):
