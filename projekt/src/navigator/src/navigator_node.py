@@ -20,6 +20,7 @@ from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from geometry_msgs.msg import PointStamped
 from geometry_msgs.msg import Point
+from geometry_msgs.msg import Pose
 from std_msgs.msg import Bool
 from std_msgs.msg import UInt8MultiArray, MultiArrayDimension
 from nav_msgs.msg import OccupancyGrid
@@ -28,7 +29,8 @@ from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
 from rclpy.qos import QoSProfile
 from sensor_msgs.msg import LaserScan
-from time import sleep
+import math
+from tf_transformations import euler_from_quaternion
 import numpy
 import cv2
 
@@ -43,16 +45,31 @@ class Turtlebot3Navigator(Node):
         print('stop distance: 0.5 m')
         print('----------------------------------------------')
 
+        self.stop_distance = 0.35
+
         self.scan_ranges = []
         self.has_scan_received = False
         self.has_map_received = False
         self.threshold=75
+        self.goal_reached = False
 
-        self.stop_distance = 0.2
+        # set speed
+        self.velocity = 0.0
+
+        # Default motion command (slow forward)
         self.tele_twist = Twist()
-        self.tele_twist.linear.x = 0.0
+        self.tele_twist.linear.x = self.velocity
         self.tele_twist.angular.z = 0.0
+        self.yaw = 0
+        self.multiplier = 0.3
 
+        # Movement parameters
+        self.p_regulator = 1.5
+        self.distance_tolerance = 0.1
+        self.disatance_weight = 1
+        self.angle_limit = math.pi/2
+
+        self.pose = Pose()
         self.robot_pose = Point()
         self.goal_pose = Point()
         self.origin_offset = Point()
@@ -97,15 +114,25 @@ class Turtlebot3Navigator(Node):
             'clicked_point',
             self.clicked_point_callback,
             qos_profile=qos_profile_sensor_data)
-
-        self.timer = self.create_timer(0.1, self.timer_callback)
-
+        
+        self.path_sub = self.create_subscription(
+            UInt8MultiArray,
+            'path_list',
+            self.path_map_callback,
+            qos_profile=qos_profile_sensor_data)
+        
     def scan_callback(self, msg):
         self.scan_ranges = msg.ranges
         self.has_scan_received = True
 
     def amcl_pose_callback(self, msg):
         self.robot_pose = msg.pose.pose.position
+        self.pose = msg.pose.pose
+        oriList = [self.pose.orientation.x, self.pose.orientation.y, self.pose.orientation.z, self.pose.orientation.w]
+        (roll, pitch, yaw) = euler_from_quaternion(oriList)
+        self.yaw = yaw
+        # self.get_logger().info(f"Robot state  {self.pose.position.x, self.pose.position.y, yaw}")
+
 
     def clicked_point_callback(self, msg):
         self.goal_pose = msg.point
@@ -119,14 +146,14 @@ class Turtlebot3Navigator(Node):
         self.map_resolution = msg.info.resolution
         if self.has_map_received:
             self.has_map_received = False
-            self.create_map(occupancy_grid_data, map_height, map_width)
+            self.create_path(occupancy_grid_data, map_height, map_width)
 
     def cmd_vel_raw_callback(self, msg):
         self.tele_twist = msg
 
-    def timer_callback(self):
-        if self.has_scan_received and self.has_map_received:
-            self.has_scan_received = False
+    def path_map_callback(self, msg):
+        path = self.multi_array_deconstructor(msg)
+        self.follow_path([(0.3,0.3)])
 
     def global_to_discrete(self, globalX, globalY):
         discreteX = (globalX - self.origin_offset.x)/self.map_resolution
@@ -174,7 +201,7 @@ class Turtlebot3Navigator(Node):
         return array_2d
 
 
-    def create_map(self, data, height, width):
+    def create_path(self, data, height, width):
         print('create map')
         maze2D = numpy.array(data, dtype=numpy.int8).reshape((height, -width))
 
@@ -183,7 +210,7 @@ class Turtlebot3Navigator(Node):
         # maze = self.maze_from_csv('maze.csv')
         # maze = numpy.array(maze, dtype=numpy.int8)
 
-        print('############### BEFORE FUNCTION CALL ')
+        # print('############### BEFORE FUNCTION CALL ')
         print(f'{self.robot_pose.x=}')
         robot_pose_relative = self.global_to_discrete(self.robot_pose.x, self.robot_pose.y)
         goal_pose_relative = self.global_to_discrete(self.goal_pose.x, self.goal_pose.y)
@@ -191,24 +218,22 @@ class Turtlebot3Navigator(Node):
         # robot_pose_relative = self.global_to_discrete(start[0], start[1])
         # goal_pose_relative = self.global_to_discrete(goal[0], goal[1])
 
-        print('map')
+        # print('map')
         map_msg = UInt8MultiArray()
         map_msg = self.multi_array_constructor(maze2D)
         self.a_star_map_pub.publish(map_msg)
 
-        print('points')
+        # print('points')
         points = [robot_pose_relative, goal_pose_relative]
         points = numpy.array(points, dtype=numpy.int8)
         start_goal_msg = UInt8MultiArray()
         start_goal_msg= self.multi_array_constructor(points)
         self.start_goal_coords_pub.publish(start_goal_msg)
 
-        # A*
+        # print(robot_pose_relative)
+        # print(goal_pose_relative)
 
-        print(robot_pose_relative)
-        print(goal_pose_relative)
-
-        self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative, self.threshold) #TODO add path
+        # self.print_map_cv2(maze2D, robot_pose_relative, goal_pose_relative, self.threshold) 
 
     def print_map_cv2(self, map2D, robot_pose, goal_pose, threshold):
         """
@@ -250,33 +275,81 @@ class Turtlebot3Navigator(Node):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-    def detect_obstacle(self):
-        while True:
-            sleep(1)
-        
-        left_range = int(len(self.scan_ranges) / 4)
-        right_range = int(len(self.scan_ranges) * 3 / 4)
-
-        obstacle_distance = min(
-            min(self.scan_ranges[0:left_range]),
-            min(self.scan_ranges[right_range:360])
+    # Från Lab 2: 
+    def calculate_steering_angle(self, coord):
+        """Angle toward goal"""
+        return math.atan2(coord[1] - self.pose.position.y, coord[0] - self.pose.position.x)
+    
+    def euclidean_distance(self, coord):
+        """Distance between current position and goal"""
+        return math.sqrt(
+            (coord[0] - self.pose.position.x) ** 2
+            + (coord[1] - self.pose.position.y) ** 2
         )
+    
+    # NOTE Egna funktioner
+    def calculate_goal_angle(self, coord):
+        print('Calculating Goal Angle')
+        # return angle towards goal in relataion to the robot
+        goal_angle = self.calculate_steering_angle(coord)
 
-        twist = Twist()
-        print(f'{obstacle_distance=:.2f}')
-        # print(f'{self.has_scan_received=}')
-        if obstacle_distance < self.stop_distance:
-            twist.linear.x = 0.0
-            twist.angular.z = self.tele_twist.angular.z
-            self.get_logger().info('Obstacle detected! Stopping.', throttle_duration_sec=2)
-            self.cmd_vel_pub.publish(twist)
-            sleep(2)
-            twist.linear.x = -0.1
-            self.cmd_vel_pub.publish(twist)
-            sleep(2)
+        diff_angle = goal_angle - self.yaw
+        diff_angle = math.atan2(math.sin(diff_angle), math.cos(diff_angle))
+
+        return self.p_regulator * diff_angle
+    
+    def limit_rotation(self, angle):
+        if angle > self.angle_limit:
+            angle = self.angle_limit
+        elif angle < -self.angle_limit:
+            angle = -self.angle_limit
+        
+        return angle
+    
+    def obst_in_front(self, angle):
+        if angle < 90 or angle < -270:
+            return True
         else:
-            twist = self.tele_twist
-            self.cmd_vel_pub.publish(twist)
+            return False
+
+    def follow_path(self, path):
+        print(path)
+        twist = self.tele_twist
+        n = 5
+        for i in range(0, len(path), n):
+            coord_reached = False
+            while not coord_reached:
+                # stop at goal
+                if self.euclidean_distance(path[i]) < self.distance_tolerance:
+                    self.goal_reached = True
+                    twist.linear.x = 0.0
+                    twist.angular.z = 0.0
+                    coord_reached = True
+                    self.get_logger().info("Goal reached!")
+                
+                print('calculate_goal_angle')
+                angle_goal = self.calculate_goal_angle(path[i])
+                
+                if -0.5 < angle_goal < 0.5:
+                    print('angle reached!!!')
+                    twist.angular.z = 0.0
+                else:
+                    print('else')
+                    print(f'{angle_goal=}')
+                    twist.angular.z = angle_goal * (self.calculate_steering_angle(path[i]) - self.yaw)
+                # For now, just use the teleop command (unsafe - replace with your code)
+                
+
+                # Publish the velocity command
+                print('#################')
+                print(f'{twist=}')
+                self.cmd_vel_pub.publish(twist)
+
+        self.get_logger().info("Goal reached!")
+        self.tele_twist.linear.x = 0.0
+        self.tele_twist.angular.z = 0.0
+        self.cmd_vel_pub.publish(self.tele_twist)
+        return
 
 
 def main(args=None):

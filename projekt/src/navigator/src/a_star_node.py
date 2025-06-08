@@ -29,6 +29,7 @@ class Turtlebot3AStar(Node):
         qos = QoSProfile(depth=10)
 
         self.path_list_pub = self.create_publisher(UInt8MultiArray, 'path_list', qos) #TODO
+        # self.a_star_map_pub = self.create_publisher(UInt8MultiArray, 'a_star_map', qos)
 
         self.start_goal_sub = self.create_subscription(
             UInt8MultiArray,
@@ -218,8 +219,9 @@ class Turtlebot3AStar(Node):
                 self.print_map_cv2(start, goal, path, cameFrom)
 
                 multi_array_path = self.multi_array_constructor(path)
-
-                self.path_list_pub.publish(multi_array_path )
+                print('Publishing path to /path_list')
+                self.path_list_pub.publish(multi_array_path)
+                return 1
             
             openSet.remove(current)
             
