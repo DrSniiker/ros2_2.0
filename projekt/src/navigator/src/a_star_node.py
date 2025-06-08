@@ -105,9 +105,9 @@ class Turtlebot3AStar(Node):
 
         # Bygger tillbaka vägen från målet till start
         while True:
-            for node in cameFrom:
-                if node[0] == current:
-                    previous = node[1]
+            for coord, prev_coord in cameFrom:
+                if coord == current:
+                    previous = prev_coord
                     break
                 else:
                     previous = None
