@@ -104,9 +104,9 @@ class Turtlebot3AStar(Node):
 
         # Bygger tillbaka vägen från målet till start
         while True:
-            for node in cameFrom:
-                if node[0] == current:
-                    previous = node[1]
+            for coord, prev_coord in cameFrom:
+                if coord == current:
+                    previous = prev_coord
                     break
                 else:
                     previous = None
@@ -225,8 +225,6 @@ class Turtlebot3AStar(Node):
             self.get_neighbors(neighbors, current)
             print('neighbors:', neighbors)
 
-
-            ########################################################
             for neighbor in neighbors:
                 #print('in for 1')
 
@@ -237,36 +235,25 @@ class Turtlebot3AStar(Node):
                 self.set_score(fScore, neighbor, self.get_score(gScore, neighbor) + self.heuristic(neighbor, goal))
 
                 #TODO någonting spökar
-                tentativeGScore = self.get_score(gScore, current) + 1
-                print(f'{tentativeGScore=}')
+                tentativeGScore = self.get_score(gScore, current) + self.heuristic(current, neighbor)
+                # print(f'{tentativeGScore=}')
 
-                # Check if this neighbor is already in open_list with a better path
-                existing = next((n for n in openSet if n == neighbor), None)
+                # Denna väg är bättre än tidigare känd väg, uppdatera vägen
+                for coord, previous in cameFrom:
+                    # print('in for 2')
+                    # Ta bort tidigare koordinat om den finns i cameFrom
+                    if coord == neighbor:
+                        # print('in if 2')
+                        cameFrom.remove((coord, previous))
+                        break
 
-                # om det inte finns en bättre väg
-                if existing and self.get_score(gScore, neighbor) >= self.get_score(gScore, existing):
-                    continue # already has a better path
-                # add or update the openSet list
-                if existing:
-                    openSet.remove(existing)
-                openSet.append(neighbor)
-
-                    # # Denna väg är bättre än tidigare känd väg, uppdatera vägen
-                    # for coord, previous in cameFrom:
-                    #     # print('in for 2')
-                    #     # Ta bort tidigare koordinat om den finns i cameFrom
-                    #     if coord == neighbor:
-                    #         # print('in if 2')
-                    #         cameFrom.remove((coord, previous))
-                    #         break
-
-                    # cameFrom.append((neighbor, current))
+                cameFrom.append((neighbor, current))
                     # self.set_score(gScore, neighbor, tentativeGScore)
-                    # self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
+                    # # self.set_score(fScore, neighbor, tentativeGScore + self.heuristic(neighbor, goal))
 
-                    # if neighbor not in openSet:
-                    #     print(f'Adding {neighbor} to openSet')
-                    #     openSet.append(neighbor)
+                if neighbor not in openSet:
+                    print(f'Adding {neighbor} to openSet')
+                    openSet.append(neighbor)
             
             print(f'{openSet=}')
             print(f'{cameFrom=}')
