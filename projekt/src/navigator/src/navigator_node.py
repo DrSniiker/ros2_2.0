@@ -70,7 +70,7 @@ class Turtlebot3Navigator(Node):
 
         # Movement parameters
         self.p_regulator = 1.5
-        self.distance_tolerance = 0.1
+        self.distance_tolerance = 0.2
         self.disatance_weight = 1
         self.angle_limit = math.pi/2
 
@@ -164,8 +164,9 @@ class Turtlebot3Navigator(Node):
         self.tele_twist = msg
 
     def path_map_callback(self, msg):
-        self.path = self.multi_array_deconstructor(msg)
-        self.path = [(0.3, 0.3), (0.8, 0.1)]
+        discrete_path = self.multi_array_deconstructor(msg)
+        self.path = self.discrete_to_global(discrete_path)
+        # self.path = [(0.3, 0.3), (0.8, 0.1)]
         self.path_recieved = True
 
     def timer_callback(self):
@@ -189,12 +190,12 @@ class Turtlebot3Navigator(Node):
         return (int(discreteX), int(discreteY))
 
     def discrete_to_global(self, coords):
-        coords = numpy.array(coords, dtype=numpy.int32)
+        coords = numpy.array(coords, dtype=numpy.float64)
         coords *= self.map_resolution
         coords[:, 0] = coords[:, 0] + self.origin_offset.x
         coords[:, 1] = coords[:, 1] + self.origin_offset.y
+
         return coords
-    
     # construct multiarray message
     def multi_array_constructor(self, array):
         msg = UInt8MultiArray()
@@ -358,23 +359,25 @@ class Turtlebot3Navigator(Node):
         twist = Twist()
         # twist = self.tele_twist
 
-        coord_reached = False
-            # stop at goal
+        if self.goal_reached == True:
+            while True:
+                self.get_logger().info("Goal reached!")
+
+        # stop at goal
         if self.euclidean_distance(self.path[self.index]) < self.distance_tolerance:
             if self.index >= len(self.path) - 1: #TODO if no more points in path then done
                 self.goal_reached = True 
-                self.get_logger().info("Goal reached!")
+
                 twist.linear.x = 0.0
                 twist.angular.z = 0.0
                 self.cmd_vel_pub.publish(twist)
 
-            coord_reached = True
-
             twist.linear.x = 0.0
             twist.angular.z = 0.0
-            self.index += 1
+            self.index += 5
             if self.index > len(self.path) - 1:
                 self.index = len(self.path) - 1
+                self.goal_reached = True
             
             self.get_logger().info("Waypoint reached!")
 

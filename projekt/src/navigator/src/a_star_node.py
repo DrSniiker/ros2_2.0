@@ -19,7 +19,7 @@ class Turtlebot3AStar(Node):
         self.a_star_map = UInt8MultiArray()
         self.map2D = UInt8MultiArray()
         self.start_goal_coords = UInt8MultiArray()
-        self.threshold = 75
+        self.threshold = 50
 
         self.map_recieved = False
         self.coords_recieved = False
