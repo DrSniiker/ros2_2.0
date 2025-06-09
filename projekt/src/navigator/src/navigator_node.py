@@ -33,6 +33,7 @@ import math
 from tf_transformations import euler_from_quaternion
 import numpy
 import cv2
+import time
 
 
 class Turtlebot3Navigator(Node):
@@ -48,13 +49,16 @@ class Turtlebot3Navigator(Node):
         self.stop_distance = 0.35
 
         self.scan_ranges = []
+        self.path = []
         self.has_scan_received = False
         self.has_map_received = False
+        self.path_recieved = False
+        self.amcl_pose_recieved = False
         self.threshold=75
         self.goal_reached = False
 
         # set speed
-        self.velocity = 0.0
+        self.velocity = 0.1
 
         # Default motion command (slow forward)
         self.tele_twist = Twist()
@@ -62,6 +66,7 @@ class Turtlebot3Navigator(Node):
         self.tele_twist.angular.z = 0.0
         self.yaw = 0
         self.multiplier = 0.3
+        self.index = 0
 
         # Movement parameters
         self.p_regulator = 1.5
@@ -121,18 +126,25 @@ class Turtlebot3Navigator(Node):
             self.path_map_callback,
             qos_profile=qos_profile_sensor_data)
         
+        # Set up timer for regular checking
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        
+        
     def scan_callback(self, msg):
         self.scan_ranges = msg.ranges
         self.has_scan_received = True
 
     def amcl_pose_callback(self, msg):
-        self.robot_pose = msg.pose.pose.position
         self.pose = msg.pose.pose
+        self.robot_pose = self.pose.position
         oriList = [self.pose.orientation.x, self.pose.orientation.y, self.pose.orientation.z, self.pose.orientation.w]
         (roll, pitch, yaw) = euler_from_quaternion(oriList)
         self.yaw = yaw
+        self.amcl_pose_recieved = True
+        print('________________')
+        print(yaw)
+        print('________________')
         # self.get_logger().info(f"Robot state  {self.pose.position.x, self.pose.position.y, yaw}")
-
 
     def clicked_point_callback(self, msg):
         self.goal_pose = msg.point
@@ -152,8 +164,24 @@ class Turtlebot3Navigator(Node):
         self.tele_twist = msg
 
     def path_map_callback(self, msg):
-        path = self.multi_array_deconstructor(msg)
-        self.follow_path([(0.3,0.3)])
+        self.path = self.multi_array_deconstructor(msg)
+        self.path = [(0.3, 0.3), (0.8, 0.1)]
+        self.path_recieved = True
+
+    def timer_callback(self):
+        """Regular function to check for obstacles"""
+        if self.path_recieved == True and self.amcl_pose_recieved == False:
+            print('twitching!!!')
+            self.tele_twist.angular.z = 1.0
+            self.cmd_vel_pub.publish(self.tele_twist)
+            time.sleep(1)
+            self.tele_twist.angular.z = -1.0
+            self.cmd_vel_pub.publish(self.tele_twist)
+            
+        if self.path_recieved and self.amcl_pose_recieved:
+            print('Following path...')
+            self.follow_path()
+            # self.amcl_pose_recieved = False
 
     def global_to_discrete(self, globalX, globalY):
         discreteX = (globalX - self.origin_offset.x)/self.map_resolution
@@ -293,7 +321,18 @@ class Turtlebot3Navigator(Node):
         # return angle towards goal in relataion to the robot
         goal_angle = self.calculate_steering_angle(coord)
 
+        print(f'{self.pose.position.y=}')
+        print(f'{self.pose.position.x=}')
+        print(f'{coord=}')
+        
+        
+        print(f'i calculate goal angle yaw: {self.yaw}')
         diff_angle = goal_angle - self.yaw
+        degrees = goal_angle * (180/math.pi)
+        degrees_diff_angle = diff_angle * (180/math.pi)
+        print(f'{degrees=}')
+        print(f'{degrees_diff_angle=}')
+
         diff_angle = math.atan2(math.sin(diff_angle), math.cos(diff_angle))
 
         return self.p_regulator * diff_angle
@@ -312,44 +351,51 @@ class Turtlebot3Navigator(Node):
         else:
             return False
 
-    def follow_path(self, path):
-        print(path)
-        twist = self.tele_twist
-        n = 5
-        for i in range(0, len(path), n):
-            coord_reached = False
-            while not coord_reached:
-                # stop at goal
-                if self.euclidean_distance(path[i]) < self.distance_tolerance:
-                    self.goal_reached = True
-                    twist.linear.x = 0.0
-                    twist.angular.z = 0.0
-                    coord_reached = True
-                    self.get_logger().info("Goal reached!")
-                
-                print('calculate_goal_angle')
-                angle_goal = self.calculate_goal_angle(path[i])
-                
-                if -0.5 < angle_goal < 0.5:
-                    print('angle reached!!!')
-                    twist.angular.z = 0.0
-                else:
-                    print('else')
-                    print(f'{angle_goal=}')
-                    twist.angular.z = angle_goal * (self.calculate_steering_angle(path[i]) - self.yaw)
-                # For now, just use the teleop command (unsafe - replace with your code)
-                
+    def follow_path(self):
+        
+        #print(self.path)
+        print('\n#################################')
+        twist = Twist()
+        # twist = self.tele_twist
 
-                # Publish the velocity command
-                print('#################')
-                print(f'{twist=}')
+        coord_reached = False
+            # stop at goal
+        if self.euclidean_distance(self.path[self.index]) < self.distance_tolerance:
+            if self.index >= len(self.path) - 1: #TODO if no more points in path then done
+                self.goal_reached = True 
+                self.get_logger().info("Goal reached!")
+                twist.linear.x = 0.0
+                twist.angular.z = 0.0
                 self.cmd_vel_pub.publish(twist)
 
-        self.get_logger().info("Goal reached!")
-        self.tele_twist.linear.x = 0.0
-        self.tele_twist.angular.z = 0.0
-        self.cmd_vel_pub.publish(self.tele_twist)
-        return
+            coord_reached = True
+
+            twist.linear.x = 0.0
+            twist.angular.z = 0.0
+            self.index += 1
+            if self.index > len(self.path) - 1:
+                self.index = len(self.path) - 1
+            
+            self.get_logger().info("Waypoint reached!")
+
+        diff_angle = self.calculate_steering_angle(self.path[self.index]) - self.yaw
+        angle_goal = self.calculate_goal_angle(self.path[self.index])
+            
+        if -0.1 < diff_angle < 0.1:
+            print('======== if =========')
+            print('### angle reached!!!')
+            twist.angular.z = 0.0
+            twist.linear.x = self.velocity
+        else:
+            print('======== else =========')
+            print(f'{angle_goal=}')
+            twist.angular.z = angle_goal #* (self.calculate_steering_angle(path[i]) - self.yaw)
+            twist.linear.x = 0.01
+
+        # Publish the velocity command
+        print('Publishing message')
+        print(f'{twist=}')
+        self.cmd_vel_pub.publish(twist)
 
 
 def main(args=None):
