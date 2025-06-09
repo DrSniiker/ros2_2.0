@@ -362,6 +362,9 @@ class Turtlebot3Navigator(Node):
         if self.goal_reached == True:
             while True:
                 self.get_logger().info("Goal reached!")
+                twist.linear.x = 0.0
+                twist.angular.z = 0.0
+                self.cmd_vel_pub.publish(twist)
 
         # stop at goal
         if self.euclidean_distance(self.path[self.index]) < self.distance_tolerance:
@@ -377,7 +380,6 @@ class Turtlebot3Navigator(Node):
             self.index += 5
             if self.index > len(self.path) - 1:
                 self.index = len(self.path) - 1
-                self.goal_reached = True
             
             self.get_logger().info("Waypoint reached!")
 
