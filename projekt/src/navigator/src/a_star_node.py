@@ -19,7 +19,7 @@ class Turtlebot3AStar(Node):
         self.a_star_map = UInt8MultiArray()
         self.map2D = UInt8MultiArray()
         self.start_goal_coords = UInt8MultiArray()
-        self.threshold = 60
+        self.threshold = 55
 
         self.map_recieved = False
         self.coords_recieved = False
@@ -184,7 +184,7 @@ class Turtlebot3AStar(Node):
 
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
-            if 0 <= nx and nx < len(self.map2D) and 0 <= ny and ny < len(self.map2D[0]):
+            if 0 <= nx and nx < len(self.map2D[0]) and 0 <= ny and ny < len(self.map2D):
                 if maze[ny][nx] == 0:  # 1 är en fri cell
                     neighbors.append((nx, ny))
                 else:
@@ -200,6 +200,7 @@ class Turtlebot3AStar(Node):
     # med ettor och nollor och räknar ut den kortaste vägen på kartan från start till mål med hjälp
     # av A* algoritmen.
     def a_star(self, start, goal):
+
         openSet = [start]  # Lista med hittade koordinater som kan behöva undersökas
         cameFrom = []  # Lista med tuples: (coord, previous_coord)
         gScore = []  # Lista med tuples: (coord, gscore)
@@ -208,9 +209,13 @@ class Turtlebot3AStar(Node):
         self.set_score(gScore, start, 0)
         self.set_score(fScore, start, self.heuristic(start, goal))
 
-        
+        self.print_map_cv2(start, goal, [], [])
 
+        i = 0 
         while openSet:
+            # print('### openset while ###')
+            if i % 100 == 0:
+                self.print_map_cv2(start, goal, openSet, cameFrom)
             current = self.get_node_with_lowest_fscore(openSet, fScore)
             
             if current == goal:
@@ -251,7 +256,7 @@ class Turtlebot3AStar(Node):
                     if neighbor not in openSet:
                         # print('Adding neighbor to openSet')
                         openSet.append(neighbor)
-        
+            i += 1
         return None  # Ingen väg hittades
 
     def print_map_cv2(self, robot_pose, goal_pose, path, cameFrom):
